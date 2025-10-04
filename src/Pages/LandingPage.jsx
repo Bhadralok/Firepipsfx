@@ -1,5 +1,3 @@
-import { RiArrowRightLine } from "react-icons/ri";
-import Header from "../Components/Header";
 import CustomButton from "../UI/CustomButton";
 import { FiArrowUpRight } from "react-icons/fi";
 import { MdKeyboardDoubleArrowDown, MdOutlineAddIcCall } from "react-icons/md";
@@ -9,7 +7,6 @@ import thirdCover from "../assets/Cover-img3.png";
 import { useState } from "react";
 import { IoArrowBackSharp, IoArrowForwardSharp } from "react-icons/io5";
 import RoundButtons from "../UI/RoundButtons";
-import { RxArrowRight } from "react-icons/rx";
 import arrowRight from "../assets/arrowRight.svg";
 import { AiOutlinePlus } from "react-icons/ai";
 import MeetIcon from "../assets/Meet.svg";
@@ -17,7 +14,6 @@ import MeetCoverImg from "../assets/Jeffrey.png";
 import MeetCoverImg2 from "../assets/Jeffrey2.png";
 import UpRightArrow from "../assets/upRightArrow.svg";
 import UpRightArrowRed from "../assets/UpRightArrowRed.svg";
-// import redLine from "../assets/Redlines.svg";
 import Meet from "../assets/Meet.svg";
 import vast from "../assets/vast.svg";
 import CustomCards from "../UI/CustomCards";
@@ -235,7 +231,7 @@ export default function LandingPage() {
           of my mind because I was studying law and doing well in school. But
           here’s the thing: from a very young age My dream has always been to
           own a Lamborghini and be able to travel the world with location and
-          time freedom.  So, when I did the math, I realized that if I was going
+          time freedom. So, when I did the math, I realized that if I was going
           to ever achieve my Lamborghini dream, I needed another Path. <br />
           <br /> You are probably reading this page right now because just like
           I did 8 years ago, you also have a big financial goal or dream and you
@@ -248,7 +244,7 @@ export default function LandingPage() {
           with dreams and financial goals is that not every financial vehicle
           can take you there. It's not enough to have big financial goals, how
           much time and resources are you willing to set aside to achieve your
-          goals?  If you continue on your current path, will you be able to
+          goals? If you continue on your current path, will you be able to
           achieve all your financial goals? For me, the answer was NO! <br />
           <br />
           Once I discovered Forex Trading and understood that it has the
@@ -257,7 +253,7 @@ export default function LandingPage() {
           $1,000 monthly do for your goals? I remember when I made my first
           $1,000 from the market, the feeling was unreal or was it when I bought
           my first car? My brother had to call me aside to prove that I was not
-          doing anything illegal.  I even went viral when I bought a
+          doing anything illegal. I even went viral when I bought a
           Mercedes-Benz after profiting over $270,000 in a single trade. What I
           am trying to say is that Forex Trading Funded and is funding my dreams
           and it can do the same for you. YES!!! Forex Trading allowed me to buy
@@ -267,7 +263,7 @@ export default function LandingPage() {
           show you how to flip the switch and become profitable. <br />
           <br />I started this academy to allow me to hold as many people by the
           hand and show them my roadmap step-by-step. This Roadmap is unlike any
-          other trading system you've ever seen out there.  I have perfected
+          other trading system you've ever seen out there. I have perfected
           this strategy over the last seven years and used it to make over
           $10,000,000 in pure profit, it will save you time and help you trade
           SMART, not HARD!
