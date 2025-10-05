@@ -6,5 +6,5 @@ export default defineConfig({
     tailwindcss(),
     [react()],
   ],
-  base: "/Firepipsfx",
+  base: "/Firepipsfx/",
 })
