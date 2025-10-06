@@ -1,4 +1,6 @@
 import Loader from "../assets/Loader.svg";
+import sentIcon from "../assets/sentIcon.svg";
+
 export default function CustomButton({
   icon1,
   icon2,
@@ -9,6 +11,7 @@ export default function CustomButton({
   isLoading,
   isLoadingText = "Logging in...",
   onClick,
+  isSent,
   ...props
 }) {
   const styleChange = () => {
@@ -24,6 +27,7 @@ export default function CustomButton({
     outlined: "border-2 border-primary-red cursor-pointer text-primary-red",
     whiteOutline: "border-2 border-white cursor-pointer text-white",
   };
+  let sentStyle;
 
   const baseClasses =
     "flex items-center justify-center gap-2 py-4 w-full px-5 rounded-tl-3xl rounded-bl-3xl rounded-tr-3xl font-bold transition-colors duration-300";
@@ -41,6 +45,7 @@ export default function CustomButton({
       onClick={onClick}
     >
       {isLoading && <img src={Loader} className="Loader" alt="Loading" />}
+      {isSent && <img src={sentIcon} alt="Loading" />}
       {icon2 && <span>{icon2}</span>}
       {isLoading ? `${isLoadingText}` : children}
       {icon1 && <span>{icon1}</span>}

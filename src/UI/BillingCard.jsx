@@ -72,8 +72,8 @@ export default function BillingCard({
           {billingDescription}
         </p>
         <ul className={`${list} gap-6 flex flex-col`}>
-          {benefits.map((n) => (
-            <li className="flex gap-1 items-center text-sm w-full">
+          {benefits.map((n, i) => (
+            <li key={i} className="flex gap-1 items-center text-sm w-full">
               <img src={cardList} alt="" className="" />
               {n}
             </li>

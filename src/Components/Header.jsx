@@ -16,7 +16,7 @@ export default function Header() {
     { name: "Lotsize Calculator", path: "/lotsize-calculator" },
   ];
   return (
-    <div className="w-full flex items-center  justify-between px-10  py-4">
+    <div className="w-full flex items-center fixed bg-white z-100 shadow-lg justify-between px-10  py-4">
       <div className="pr-18">
         <img src={Logo} alt="Logo" />
       </div>
