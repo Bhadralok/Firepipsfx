@@ -15,8 +15,9 @@ export default function Header() {
     { name: "FAQs", path: "/faqs" },
     { name: "Lotsize Calculator", path: "/lotsize-calculator" },
   ];
+
   return (
-    <div className="w-full flex items-center fixed bg-white z-100 shadow-lg justify-between px-10  py-4">
+    <div className="w-full flex items-center fixed bg-white z-100 shadow-lg justify-between px-10 py-4">
       <div className="pr-18">
         <img src={Logo} alt="Logo" />
       </div>
@@ -25,7 +26,9 @@ export default function Header() {
           {navLinks.map((link) => (
             <li
               key={link.name}
-              onClick={() => navigate(link.path)}
+              onClick={() => {
+                navigate(link.path);
+              }}
               className={`cursor-pointer  ${
                 location.pathname === link.path
                   ? "text-primary-red font-bold text-base"

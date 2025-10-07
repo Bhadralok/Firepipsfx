@@ -11,6 +11,8 @@ export default function CustomInput({
   isInvisible = true,
   isInvisibleLabel = "YOUR EMAIL",
   register,
+  onChange,
+  value = "",
   error,
 }) {
   const [showPassword, setShowPassword] = useState(false);
@@ -27,7 +29,9 @@ export default function CustomInput({
       <div className="relative w-full">
         {isInvisible ? (
           <input
+            onChange={onChange}
             id={name}
+            value={value}
             type={inputType}
             placeholder={placeholder}
             {...register}

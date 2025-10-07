@@ -13,23 +13,42 @@ import facebook from "../assets/facebook.svg";
 import twitter from "../assets/twitter.svg";
 import upRightArrow from "../assets/upRightArrow.svg";
 import footerDivider from "../assets/footerDivider.svg";
+import CustomDropdown from "../UI/CustomDropdown";
 
 export default function Footer() {
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
   const [isToggled, setIsToggled] = useState(false);
+  const [email, setEmail] = useState("");
+  const [isActive, setIsActive] = useState(false);
 
   const handleToggle = () => {
     setIsToggled(!isToggled);
   };
 
-  const handleClick = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  };
+  //   const handleClick = () => {
+  //     setIsLoading(true);
+  //     setTimeout(() => {
+  //       setIsLoading(false);
+  //     }, 2000);
+  //   };
+
   const year = new Date().getFullYear();
 
+  const handleChange = (e) => {
+    const value = e.target.value;
+    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    if (isValidEmail === true) {
+      setIsActive(true);
+    } else {
+      setIsActive(false);
+    }
+    setEmail(value);
+  };
+
+  const handleClick1 = () => {
+    if (!isActive) return; // prevent click if invalid
+    console.log("Subscribed with:", email);
+  };
   return (
     <footer className="h-fit w-full px-10 pb-12.5 pt-12.5 flex flex-col gap-7.5  text-white bg-primary-black">
       <div className="flex gap-12.5 items-center justify-between">
@@ -46,15 +65,19 @@ export default function Footer() {
             academy
           </p>
           <div>
-            <CustomInput placeholder="Enter your email to continue" />
+            <CustomInput
+              placeholder="Enter your email to continue"
+              value={email}
+              onChange={handleChange}
+            />
           </div>
           <div className="w-[230px]">
             <CustomButton
               variant="login"
-              onClick={handleClick}
-              isLoading={isLoading}
+              onClick={handleClick1}
+              isLoading={false}
               isSent={false}
-              active={false}
+              active={isActive}
             >
               <span className="text-sm">Subscribe to our newsletter</span>
             </CustomButton>
@@ -76,16 +99,23 @@ export default function Footer() {
             <li
               onClick={handleToggle}
               className={`${
-                isToggled === true && "text-primary-red"
-              } flex gap-1 items-center`}
+                isToggled === true && "text-primary-red w-fit"
+              } flex gap-1 items-center w-fit`}
             >
               Our Locations{" "}
-              <span>
+              <span className="relative">
                 {isToggled ? (
                   <LuCircleChevronUp size={18} color="#ed3c52" />
                 ) : (
                   <LuCircleChevronDown size={18} color="#c4c4c4" />
                 )}
+                <CustomDropdown
+                  isOpen={isToggled}
+                  onClose={() => setIsToggled(false)}
+                  items={profileItems}
+                  style="py-4 px-1 top-7"
+                  position="-right-13"
+                />
               </span>
             </li>
             <li>Access learning dashboard</li>
@@ -172,7 +202,11 @@ export default function Footer() {
     </footer>
   );
 }
-
+const profileItems = [
+  { label: "Lagos Island - Lekki" },
+  { label: "Lagos Mainland - Ikeja" },
+  { label: "Delta - Asaba Branch" },
+];
 // const navLinks = [
 //   { name: "About", path: "/about" },
 //   { name: "Mentorship Plans", path: "/plans" },
