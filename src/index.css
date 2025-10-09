@@ -1,4 +1,8 @@
 @import "tailwindcss";
+* {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Satoshi", sans-serif;
 }
@@ -9,7 +13,7 @@ body {
   --color-secondary-black: #565656;
   --color-placeholder-gray: #c4c4c4;
   --color-primary-black: #1e0306;
-  --color-primary-white: #FDE9EC;
+  --color-primary-white: #fde9ec;
 }
 .Loader {
   width: 20px;
@@ -24,4 +28,8 @@ body {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.fade-box {
+  background: linear-gradient(to bottom, transparent, #1e0306);
 }

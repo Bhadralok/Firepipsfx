@@ -8,14 +8,12 @@ import ListIcon from "../assets/ListIcon.svg";
 import location from "../assets/location.svg";
 import BillingCard from "../UI/BillingCard";
 import Footer from "./Footer";
-// import { ExchangeContext } from "../Context/ExchangeRateData";
+import star from "../assets/star.svg";
+import cup from "../assets/cup.svg";
 
 export default function PaymentLogic() {
   const [isActive, setIsActive] = useState(true);
   const [isActive1, setIsActive1] = useState(false);
-
-  //   const exchangeRate = useContext(ExchangeContext);
-  //   const [showInNaira, setShowInNaira] = useState(true);
 
   const handleClick = () => {
     setIsActive(!isActive);
@@ -23,17 +21,14 @@ export default function PaymentLogic() {
   };
 
   const priceInNaira = 250000;
-
-  //   const displayPrice = showInNaira
-  //     ? `₦${priceInNaira.toLocaleString()}`
-  //     : `$${(priceInNaira / exchangeRate).toFixed(2)}`;
-
-  //   const priceInDollar = priceInNaira / exchangeRate;
-
-  //   console.log(exchangeRate)
-
   const priceInDollar = 165.99;
   const newPrice = priceInNaira.toLocaleString();
+
+  const monthlyPrice = 79;
+  const threeMonthsPrice = 197;
+  const sixMonthsPrice = 339;
+  const yearlyPrice = 599;
+
   return (
     <div>
       <h2 className="font-bold text-sm  text-primary-black pt-7.5">
@@ -123,11 +118,39 @@ export default function PaymentLogic() {
             </div>
           </>
         ) : (
-          <div className="flex gap-5 items-center justify-between">
-            <BillingCard />
-            <BillingCard />
-            <BillingCard />
-            <BillingCard />
+          <div className="flex gap-5 items-center justify-between w-full">
+            <BillingCard
+              price={monthlyPrice}
+              benefits={MonthlyBenefits}
+              billingDescription="What you will get with this plan..."
+            />
+            <BillingCard
+              duration="3 Months Plan"
+              benefits={threeMonthsBenefits}
+              price={threeMonthsPrice}
+              billingDescription="You will get everything in the monthly plan plus..."
+            />
+            <BillingCard
+              price={sixMonthsPrice}
+              paragraph="popular"
+              icon={star}
+              thePriceStyle="text-primary-red"
+              popularStyle="bg-white"
+              benefits={sixMonthsBenefits}
+              billingDescription="You will get everything in the 3 months plan plus..."
+            />
+            <BillingCard
+              price={yearlyPrice}
+              paragraph="top tier"
+              toptierStyle="bg-white text-primary-black mix-blend-difference"
+              paymentColor="text-primary-red"
+              duration="yearly plan"
+              icon={cup}
+              thePriceStyleTop="text-primary-red"
+              benefits={yearlyBenefits}
+              headerStyle="text-primary-black"
+              billingDescription="You will get everything in the 6 months plan plus..."
+            />
           </div>
         )}
       </div>
@@ -177,4 +200,32 @@ const branchLocations = [
     title: "ASABA BRANCH",
     address: "3 Ikeja Avenue, Lagos Mainland, Lagos.",
   },
+];
+const yearlyBenefits = [
+  "A free trading journal",
+  "Advanced live trading sessions",
+  "120 minutes call with a Mentor to create a personalized trading plan",
+  "Virtual graduation event",
+  "Super Priority Instant Support",
+];
+const sixMonthsBenefits = [
+  "A free trading journal",
+  "Daily live trading session",
+  "60 minutes group call with a Mentor to create a personalized trading plan",
+  "Certificate of Attendance",
+  "Top Priority Support",
+];
+const threeMonthsBenefits = [
+  "A free trading journal",
+  "Weekly live trading session",
+  "Mentor's personal contact",
+  "free trading plan template",
+  "Priority Support",
+];
+const MonthlyBenefits = [
+  "Full access to training videos",
+  "Access to beginner & advanced live classes",
+  "Free trade signals (Bonus)",
+  "Private community",
+  "Constant help and support",
 ];

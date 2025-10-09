@@ -258,6 +258,7 @@ export default function LandingPage() {
             paragraph="top tier"
             price="599"
             benefits={yearlyBenefits}
+            benefitStyle="text-placeholder-gray"
             billingDescription="You will get everything in the 6 months plan plus..."
             duration="yearly plan"
           />

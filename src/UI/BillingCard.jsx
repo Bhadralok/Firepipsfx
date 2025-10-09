@@ -16,7 +16,14 @@ export default function BillingCard({
     "Certificate of Attendance",
     "Top Priority Support",
   ],
+  popularStyle = "bg-secondary-red",
+  toptierStyle = "bg-primary-black text-white",
+  paymentColor = " invert brightness-0",
   duration = "Monthly plan",
+  benefitStyle = "text-secondary-black",
+  thePriceStyle = "text-primary-black",
+  thePriceStyleTop = "text-white",
+  headerStyle = "text-white",
 }) {
   let style;
   let paymentStyle;
@@ -25,13 +32,16 @@ export default function BillingCard({
   let priceStyle;
 
   if (paragraph === "popular") {
-    style = "bg-secondary-red";
-    priceStyle = "text-primary-black";
+    style = popularStyle;
+    priceStyle = thePriceStyle;
   } else if (paragraph === "top tier") {
-    style = "bg-primary-black text-white mix-blend-color";
-    paymentStyle = " invert brightness-0";
-    header = "text-white";
+    style = `${toptierStyle} bg-primary-black `;
+    paymentStyle = paymentColor;
+    header = headerStyle;
     list = "text-placeholder-gray";
+    priceStyle = thePriceStyleTop;
+  } else if (paragraph === "") {
+    priceStyle = "text-primary-red";
   }
 
   return (
@@ -73,7 +83,10 @@ export default function BillingCard({
         </p>
         <ul className={`${list} gap-6 flex flex-col`}>
           {benefits.map((n, i) => (
-            <li key={i} className="flex gap-1 items-center text-sm w-full">
+            <li
+              key={i}
+              className={`flex gap-1  items-center ${benefitStyle} text-sm w-full`}
+            >
               <img src={cardList} alt="" className="" />
               {n}
             </li>

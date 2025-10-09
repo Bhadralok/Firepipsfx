@@ -15,7 +15,7 @@ export default function CustomCards({
       <p className="text-sm text-secondary-black font-medium">{body}</p>
       <div className="w-fit">
         <CustomButton variant="secondary" icon1={<img src={UpRightArrowRed} />}>
-          <span className="text-sm font-bold">{buttonText}</span>
+          <span celassName="text-sm font-bold">{buttonText}</span>
         </CustomButton>
       </div>
     </div>

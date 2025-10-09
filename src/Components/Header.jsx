@@ -1,4 +1,4 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, NavLink } from "react-router-dom";
 import { FiArrowUpRight } from "react-icons/fi";
 import CustomButton from "../UI/CustomButton";
 import Logo from "../assets/logo-dark.svg";
@@ -9,35 +9,44 @@ export default function Header() {
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
+    { name: "About", routeToComponent: "/#aboutSection" },
     { name: "Plans", path: "/plans" },
     { name: "Blog", path: "/blog" },
     { name: "FAQs", path: "/faqs" },
+    { name: "Support", path: "/support" },
     { name: "Lotsize Calculator", path: "/lotsize-calculator" },
   ];
 
   return (
     <div className="w-full flex items-center fixed bg-white z-100 shadow-lg justify-between px-10 py-4">
       <div className="pr-18">
-        <img src={Logo} alt="Logo" />
+        <img src={Logo} alt="Logo" onClick={() => navigate("/")} />
       </div>
       <div>
         <ul className="flex gap-5 items-center">
-          {navLinks.map((link) => (
-            <li
-              key={link.name}
-              onClick={() => {
-                navigate(link.path);
-              }}
+          {navLinks.map((link) => {
+            if (link.routeToComponent) return <a key={link.routeToComponent} href={link.routeToComponent}
               className={`cursor-pointer  ${
-                location.pathname === link.path
-                  ? "text-primary-red font-bold text-base"
-                  : "font-medium text-secondary-black text-sm"
-              }`}
-            >
-              {link.name}
-            </li>
-          ))}
+                  location.pathname === link.path
+                    ? "text-primary-red font-bold text-base"
+                    : "font-medium text-secondary-black text-sm"
+                }`}
+            >{link.name}</a>;
+
+            return (
+              <NavLink
+                to={link.path}
+                key={link.name}
+                className={`cursor-pointer  ${
+                  location.pathname === link.path
+                    ? "text-primary-red font-bold text-base"
+                    : "font-medium text-secondary-black text-sm"
+                }`}
+              >
+                {link.name}
+              </NavLink>
+            );
+          })}
         </ul>
       </div>
       <div className="">

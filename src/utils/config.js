@@ -1,0 +1,15 @@
+export const faqData = [
+  "How can I join the mentorship program?",
+  "I've paid for the mentorship, what’s next?",
+  "Is it a lifetime mentorship?",
+  "Can I pay for the Mentorship program now but start a month later?",
+  "Do you accept students from other states or countries?",
+  "As a beginner, how do I start with you?",
+  "Do you provide trade signals to your mentees?",
+  "Can I make payments in instalments?",
+  "Which broker do you recommend?",
+  "Do you accept investments or trade on behalf of others?",
+  "Do you offer one-on-one physical training besides online training?",
+  "Do you have a trading floor?",
+  "What if my question isn't answered during an online session?",
+];

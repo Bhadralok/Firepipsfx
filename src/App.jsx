@@ -9,6 +9,8 @@ import Page404 from "./Pages/Page404";
 import LandingPage from "./Pages/LandingPage";
 import About from "./Pages/About";
 import Plans from "./Pages/Plans";
+import Support from "./Pages/Support";
+import FaqPage from "./Pages/FaqPage";
 
 export default function App() {
   const router = createBrowserRouter(
@@ -18,6 +20,8 @@ export default function App() {
           <Route index element={<LandingPage />} />
           <Route path="about" element={<About />} />
           <Route path="plans" element={<Plans />} />
+          <Route path="support" element={<Support />} />
+          <Route path="faqs" element={<FaqPage />} />
         </Route>
 
         <Route path="*" element={<Page404 />} />
