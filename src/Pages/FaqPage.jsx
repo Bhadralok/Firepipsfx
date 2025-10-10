@@ -3,11 +3,12 @@ import upRightArrow from "../assets/upRightArrowRed.svg";
 import faqLine from "../assets/faqLine.svg";
 import FaqQuestions from "../UI/FaqQuestions";
 import { useState } from "react";
+import { faqData } from "../utils/config";
 
 export default function FaqPage() {
   const [isOpenFaq, setIsOpenFaq] = useState(null);
   return (
-    <div className="pt-24 h-screen flex flex-col gap-10 px-10">
+    <div className="pt-24 h-full flex flex-col gap-10 px-10">
       <div className="pt-20 flex w-full items-center justify-between">
         <div className="flex flex-col gap-7.5">
           <h1 className="font-black text-5xl text-primary-black">
@@ -30,16 +31,23 @@ export default function FaqPage() {
         </div>
       </div>
       <img src={faqLine} alt="" />
-      <div className="w-[50vw] ">
-        {Array.from({ length: 5 }).map((_, i) => (
+      <div className="w-[40vw]">
+        {faqData.map((items, i) => (
           <FaqQuestions
             key={i}
             isActive={i === isOpenFaq}
             setIsactive={setIsOpenFaq}
             index={i}
+            question={items.question}
+            answer={items.answer}
+            video={items.video}
           />
         ))}
       </div>
     </div>
   );
 }
+
+// const questions = faqData.map((items) => {
+//   return items.question
+// })

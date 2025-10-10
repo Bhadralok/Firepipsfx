@@ -37,13 +37,12 @@ Modal.Window = function Window({ children }) {
   const { isOpen, closeModal } = useModal();
   const ref = useOutsideClick(closeModal);
 
-
   if (!isOpen) return null;
 
   return (
     <section className="w-full h-screen fixed z-100 inset-0 bg-black/20 backdrop-blur-sm flex items-center justify-center">
       <div ref={ref} className="min-w-40 bg-white rounded-lg p-2 ">
-        {React.cloneElement(children, {onCloseModal: closeModal})}
+        {React.cloneElement(children, { onCloseModal: closeModal })}
       </div>
     </section>
   );

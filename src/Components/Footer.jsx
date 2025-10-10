@@ -45,13 +45,17 @@ export default function Footer() {
     setEmail(value);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const handleClick1 = () => {
     if (!isActive) return; // prevent click if invalid
     console.log("Subscribed with:", email);
   };
   return (
     <footer className="h-fit w-full px-10 pb-12.5 pt-12.5 flex flex-col gap-7.5  text-white bg-primary-black">
-      <div className="flex gap-12.5 items-center justify-between">
+      <div className="flex gap-12.5  items-center justify-between">
         <div className="w-[450px] flex flex-col gap-7.5">
           <div>
             <img src={megaphone} alt="" />
@@ -68,6 +72,7 @@ export default function Footer() {
             <CustomInput
               placeholder="Enter your email to continue"
               value={email}
+              isOption={false}
               onChange={handleChange}
             />
           </div>
@@ -119,7 +124,7 @@ export default function Footer() {
               </span>
             </li>
             <li>Access learning dashboard</li>
-            <li>Back to the top</li>
+            <li onClick={scrollToTop}>Back to the top</li>
           </ul>
         </div>
         <img src={FooterLine} />

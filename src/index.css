@@ -33,3 +33,27 @@ body {
 .fade-box {
   background: linear-gradient(to bottom, transparent, #1e0306);
 }
+/* styles.css */
+.paragraph {
+  @apply font-medium text-secondary-black text-sm;
+}
+.inputs {
+  @apply rounded-tr-[20px] rounded-bl-[20px] rounded-tl-[20px];
+}
+@layer utilities {
+  /* Hide arrows in number inputs (Chrome, Safari, Edge) */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    @apply appearance-none m-0;
+  }
+
+  /* Hide arrows in number inputs (Firefox) */
+  input[type="number"] {
+    @apply appearance-none;
+    -moz-appearance: textfield;
+  }
+}
+
+ul > li {
+  @apply hover:text-primary-red cursor-pointer;
+}
