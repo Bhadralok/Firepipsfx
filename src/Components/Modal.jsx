@@ -41,7 +41,7 @@ Modal.Window = function Window({ children }) {
 
   return (
     <section className="w-full h-screen fixed z-100 inset-0 bg-black/20 backdrop-blur-sm flex items-center justify-center">
-      <div ref={ref} className="min-w-40 bg-white rounded-lg p-2 ">
+      <div ref={ref} className="min-w-40 w-auto relative bg-white rounded-3xl p-2 ">
         {React.cloneElement(children, { onCloseModal: closeModal })}
       </div>
     </section>

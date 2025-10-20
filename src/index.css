@@ -57,3 +57,23 @@ body {
 ul > li {
   @apply hover:text-primary-red cursor-pointer;
 }
+
+.container label {
+  color: var(--Black, #1e0306);
+  font-family: "Satoshi", sans-serif;
+  padding-bottom: 8px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.container div {
+  @apply w-full flex gap-0 flex-col text-left;
+}
+.support-container h1 {
+  @apply font-black text-primary-black text-3xl;
+}
+.support-container p{
+  @apply text-secondary-black text-sm font-medium;
+}

@@ -30,7 +30,6 @@ export default function LotsizeCalculator() {
     }
   }, [values]);
 
-  console.log(isValid)
 
   return (
     <div className="h-full pt-24 px-10 flex flex-col gap-10">
@@ -64,7 +63,7 @@ export default function LotsizeCalculator() {
                   }}
                   header="Trading instrument"
                   description="Select an instrument"
-                  isOption
+                  isOption  
                 />
               </div>
               <CustomInput

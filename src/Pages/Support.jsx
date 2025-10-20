@@ -3,9 +3,14 @@ import CustomButton from "../UI/CustomButton";
 import { AiOutlinePlus } from "react-icons/ai";
 import thirdCover from "../assets/Cover-img4.webp";
 import Modal from "../Components/Modal";
+import SupportPageForm from "../Components/SupportPageForm";
+import { DataContext } from "../Context/DataContext";
+import { useContext } from "react";
+import SupportPageSent from "../Components/SupportPageSent";
 
 export default function Support() {
   const images = [thirdCover];
+  const { setHasData } = useContext(DataContext);
 
   return (
     <Modal>
@@ -29,7 +34,10 @@ export default function Support() {
         </p>
         <div className="flex gap-6 w-[35.75rem]">
           <Modal.Trigger>
-            <CustomButton icon2={<AiOutlinePlus size={20} />}>
+            <CustomButton
+              icon2={<AiOutlinePlus size={20} />}
+              onClick={() => setHasData(false)}
+            >
               Create a support ticket
             </CustomButton>
           </Modal.Trigger>
@@ -42,15 +50,32 @@ export default function Support() {
         </div>
       </div>
 
-        <Modal.Window>
-          <SupportForm />
-        </Modal.Window>
-
-
+      <Modal.Window>
+        <SupportForm />
+      </Modal.Window>
     </Modal>
   );
 }
 
-function SupportForm({onCloseModal}){
-    return <button onClick={onCloseModal}>Xz</button>
+function SupportForm({ onCloseModal }) {
+  const { hasData, setHasData } = useContext(DataContext);
+  const handleSubmit = () => {
+    setHasData(true);
+    setTimeout(() => {
+      setHasData(false);
+    }, 5000);
+  };
+
+  // const handleClick = () => {
+  //   console.log(hasData);
+  // };
+  return (
+    <div className="max-w-6xl overflow-hidden">
+      {hasData ? (
+        <SupportPageSent onClick={onCloseModal} />
+      ) : (
+        <SupportPageForm onClick={onCloseModal} onSubmit={handleSubmit} />
+      )}
+    </div>
+  );
 }
