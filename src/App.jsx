@@ -12,6 +12,8 @@ import Plans from "./Pages/Plans";
 import Support from "./Pages/Support";
 import FaqPage from "./Pages/FaqPage";
 import LotsizeCalculator from "./Pages/LotsizeCalculator";
+import Blogs from "./Pages/Blogs";
+import BlogDetails from "./Pages/BlogDetails";
 
 export default function App() {
   const router = createBrowserRouter(
@@ -24,6 +26,8 @@ export default function App() {
           <Route path="support" element={<Support />} />
           <Route path="faqs" element={<FaqPage />} />
           <Route path="lotsize-calculator" element={<LotsizeCalculator />} />
+          <Route path="blog" element={<Blogs />} />
+          <Route path="blog/:id" element={<BlogDetails />} />
         </Route>
 
         <Route path="*" element={<Page404 />} />

@@ -10,9 +10,9 @@ export default function CustomInput({
   items,
 }) {
   const [style, setStyle] = useState("");
+
   function handleCheck(event) {
     const value = event.target.value.trim();
-
     if (value === "") {
       setStyle("outline-2 outline-secondary-black");
       console.log("it doesn't have value");

@@ -17,6 +17,10 @@ export default function Header() {
     { name: "Lotsize Calculator", path: "/lotsize-calculator" },
   ];
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0 });
+  };
+
   return (
     <div className="w-full flex items-center fixed bg-white z-100 shadow-lg justify-between px-10 py-4">
       <div className="pr-18">
@@ -25,18 +29,26 @@ export default function Header() {
       <div>
         <ul className="flex gap-5 items-center">
           {navLinks.map((link) => {
-            if (link.routeToComponent) return <a key={link.routeToComponent} href={link.routeToComponent}
-              className={`cursor-pointer  ${
-                  location.pathname === link.path
-                    ? "text-primary-red font-bold text-base"
-                    : "font-medium text-secondary-black text-sm"
-                }`}
-            >{link.name}</a>;
+            if (link.routeToComponent)
+              return (
+                <a
+                  key={link.routeToComponent}
+                  href={link.routeToComponent}
+                  className={`cursor-pointer  ${
+                    location.pathname === link.path
+                      ? "text-primary-red font-bold text-base"
+                      : "font-medium text-secondary-black text-sm"
+                  }`}
+                >
+                  {link.name}
+                </a>
+              );
 
             return (
               <NavLink
                 to={link.path}
                 key={link.name}
+                onClick={scrollToTop}
                 className={`cursor-pointer  ${
                   location.pathname === link.path
                     ? "text-primary-red font-bold text-base"

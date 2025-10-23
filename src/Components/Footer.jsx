@@ -20,6 +20,7 @@ export default function Footer() {
   const [isToggled, setIsToggled] = useState(false);
   const [email, setEmail] = useState("");
   const [isActive, setIsActive] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleToggle = () => {
     setIsToggled(!isToggled);
@@ -43,6 +44,7 @@ export default function Footer() {
       setIsActive(false);
     }
     setEmail(value);
+    console.log(isActive);
   };
 
   const scrollToTop = () => {
@@ -50,7 +52,11 @@ export default function Footer() {
   };
 
   const handleClick1 = () => {
-    if (!isActive) return; // prevent click if invalid
+    if (!isActive) return;
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
     console.log("Subscribed with:", email);
   };
   return (
@@ -73,16 +79,19 @@ export default function Footer() {
               placeholder="Enter your email to continue"
               value={email}
               isOption={false}
-              onChange={handleChange}
+              config={{
+                onChange: handleChange,
+              }}
             />
           </div>
           <div className="w-[230px]">
             <CustomButton
               variant="login"
               onClick={handleClick1}
-              isLoading={false}
+              isLoading={loading}
               isSent={false}
               active={isActive}
+              isLoadingText="Subscribing..."
             >
               <span className="text-sm">Subscribe to our newsletter</span>
             </CustomButton>
