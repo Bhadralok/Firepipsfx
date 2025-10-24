@@ -14,6 +14,8 @@ import twitter from "../assets/twitter.svg";
 import upRightArrow from "../assets/upRightArrow.svg";
 import footerDivider from "../assets/footerDivider.svg";
 import CustomDropdown from "../UI/CustomDropdown";
+import footerMobileLine from "../assets/footerMobileLine.svg";
+import { useNavigate } from "react-router-dom";
 
 export default function Footer() {
   // const [isLoading, setIsLoading] = useState(false);
@@ -47,6 +49,8 @@ export default function Footer() {
     console.log(isActive);
   };
 
+  const navigate = useNavigate();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -60,25 +64,29 @@ export default function Footer() {
     console.log("Subscribed with:", email);
   };
   return (
-    <footer className="h-fit w-full px-10 pb-12.5 pt-12.5 flex flex-col gap-7.5  text-white bg-primary-black">
-      <div className="flex gap-12.5  items-center justify-between">
+    <footer className="h-fit w-full px-10 pb-12.5 pt-12.5 flex flex-col gap-7.5 text-white bg-primary-black">
+      <div className="md:flex gap-12.5 items-center justify-between">
         <div className="w-[450px] flex flex-col gap-7.5">
-          <div>
+          <div className="size-11 md:size-20">
             <img src={megaphone} alt="" />
           </div>
-          <p className="font-medium text-5xl leading-normal">
-            Let’s keep you{" "}
-            <em className="font-black text-5xl not-italic">informed!</em>
-          </p>
-          <p className="font-medium text-sm">
-            Subscribe to our newsletter to receive updates from FirepipsFX
-            academy
-          </p>
-          <div>
+          <div className="flex flex-col gap-5">
+            <p className="font-medium md:text-5xl text-2xl leading-normal">
+              Let’s keep you{" "}
+              <em className="font-black md:text-5xl not-italic">informed!</em>
+            </p>
+            <p className="font-medium md:text-sm text-[12px]">
+              Subscribe to our newsletter to receive updates from FirepipsFX
+              academy
+            </p>
+          </div>
+
+          <div className="w-full">
             <CustomInput
               placeholder="Enter your email to continue"
               value={email}
               isOption={false}
+              header={false}
               config={{
                 onChange: handleChange,
               }}
@@ -97,7 +105,12 @@ export default function Footer() {
             </CustomButton>
           </div>
         </div>
-        <img src={FooterLine} />
+        <img src={FooterLine} className="hidden md:block" />
+
+        <div className="md:hidden py-7.5 w-full">
+          <img src={footerMobileLine} className="md:hidden w-full" />
+        </div>
+
         <div className="w-[450px] flex flex-col">
           <ul className="text-placeholder-gray font-medium text-sm flex flex-col gap-6">
             <li>
@@ -106,10 +119,10 @@ export default function Footer() {
               </h4>
             </li>
             <li>About</li>
-            <li>MentorShip Plans</li>
-            <li>Blogs</li>
-            <li>FAQs</li>
-            <li>Support</li>
+            <li onClick={() => navigate("/plans")}>MentorShip Plans</li>
+            <li onClick={() => navigate("/blog")}>Blogs</li>
+            <li onClick={() => navigate("/faqs")}>FAQs</li>
+            <li onClick={() => navigate("/support")}>Support</li>
             <li
               onClick={handleToggle}
               className={`${
@@ -136,9 +149,15 @@ export default function Footer() {
             <li onClick={scrollToTop}>Back to the top</li>
           </ul>
         </div>
-        <img src={FooterLine} />
+
+        <img src={FooterLine} className="hidden md:block" />
+
+        <div className="md:hidden py-7.5 w-full">
+          <img src={footerMobileLine} className="md:hidden w-full" />
+        </div>
+
         <div className="w-[450px] flex flex-col">
-          <div className="flex flex-col text-right gap-10 items-end">
+          <div className="flex flex-col md:text-right gap-10 md:items-end">
             <div>
               <img src={logoWhite} alt="" />
             </div>
@@ -180,9 +199,9 @@ export default function Footer() {
         </div>
       </div>
       <div className="w-full">
-        <img src={footerDivider} alt="" className="w-full" />
+        <img src={footerDivider} alt="" className="w-full hidden md:block" />
       </div>
-      <div>
+      <div className="hidden md:block">
         <p className="text-placeholder-gray text-[10px] text-justify">
           <em className="not-italic font-black uppercase">Disclaimer:</em> This
           legal disclaimer applies to the use of Firepipsfx.com and its related

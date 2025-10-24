@@ -10,17 +10,21 @@ export default function AboutSection({ id }) {
 
   return (
     <div id={id}>
-      <section className="pt-20 px-10 relative ">
+      <section className="md:pt-20 pt-7.5 px-10 relative ">
         <div className="flex gap-5 items-center">
-          <img src={MeetIcon} alt="meet-icon" />
-          <h2 className="text-5xl text-primary-black font-medium">
+          <img
+            src={MeetIcon}
+            alt="meet-icon"
+            className="md:size-22.5 size-12.5"
+          />
+          <h2 className="md:text-5xl text-primary-black font-medium text-2xl">
             Meet your <em className="not-italic font-black">Mentor...</em>
           </h2>
         </div>
-        <div className="flex gap-17 justify-between">
-          <div className="flex flex-col relative text-[25px] gap-12 w-[55vw] text-secondary-black font-medium pt-19">
+        <div className="flex md:flex-row flex-col gap-10 md:gap-17 justify-between">
+          <div className="flex flex-col relative md:text-[25px] text-sm gap-5 text-justify md:w-[55vw] text-secondary-black font-medium pt-7.5 md:pt-19">
             <p>
-              <span className="text-primary-red font-black text-[22px]">
+              <span className="text-primary-red font-black md:text-[22px]">
                 {name}
               </span>
               &nbsp;is a professional, profitable and notable forex trader with
@@ -47,39 +51,34 @@ export default function AboutSection({ id }) {
                 <div className="max-w-fit h-full bg-blue-500"></div>
               </div> */}
       </section>
-      <section className="px-10 flex pt-4 gap-17">
-        <div className="inline-block bg-cover bg-center">
+      <section className="px-10 flex md:flex-row flex-col pt-4 gap-7.5 md:gap-17">
+        {/* {for desktop view} */}
+        <div className="md:inline-block bg-cover hidden bg-center">
           <img
             src={MeetCoverImg2}
             alt="Jeffrey's image"
             className="h-fit w-[650px]"
           />
         </div>
-        <div className="flex relative flex-col text-[25px] gap-12 w-[55vw] text-secondary-black font-medium pt-19">
-          {/* <div className="h-96 w-[2px] bg-red-500 -top-77 left-2 absolute"></div> */}
-          {/* <img
-                  src={redLine}
-                  className="absolute top-0 bg-red-500 size-[]"
-                  alt=""
-                /> */}
-          <p className="">
-            <span className="text-primary-red  font-black uppercase text-[22px]">
+        <div className="flex relative flex-col md:text-[25px] gap-5 md:gap-12 md:w-[55vw] text-secondary-black font-medium pt-12 md:pt-19">
+          <p className="text-justify">
+            <span className="text-primary-red font-black uppercase md:text-[22px]">
               Asides his paid mentorship,&nbsp;
             </span>
             Jeffrey helps youths all over the world take charge of their
             finances by making hundreds of forex videos, courses, and webinars
             available for FREE on both his website and YouTube Channel.
           </p>
-          <p>
+          <p className="text-justify">
             He is the founder of Firepips Trading Academy, Nigeria’s leading
             online forex and crypto trading academy, where he trains over one
             million beginners and advanced traders on how to trade profitably.{" "}
           </p>
-          <div className="flex flex-col gap-8 pt-40">
+          <div className="md:flex flex-col hidden gap-8 md:pt-40">
             <p className="text-primary-black text-base">
               Want to know more about Jeffrey and his accomplishments?
             </p>
-            <div className="flex w-[32.313rem] gap-5 text-base">
+            <div className=" w-[32.313rem] flex gap-5 text-base">
               <CustomButton icon1={<img src={UpRightArrow} />}>
                 Speak with a representative
               </CustomButton>
@@ -94,8 +93,39 @@ export default function AboutSection({ id }) {
             </div>
           </div>
         </div>
+
+        {/* for mobile view */}
+        <div className="inline-block bg-cover md:hidden bg-center">
+          <img
+            src={MeetCoverImg2}
+            alt="Jeffrey's image"
+            className="h-fit w-[650px]"
+          />
+        </div>
+        <div className="flex flex-col md:hidden gap-8 md:pt-40">
+          <p className="text-primary-black text-base md:font-bold font-black w-fit">
+            Want to know more about Jeffrey and his accomplishments?
+          </p>
+          <div className="md:w-[32.313rem] flex gap-5 text-base">
+            <CustomButton icon1={<img src={UpRightArrow} />}>
+              <span className="text-[10px] md:text-base">
+                Speak with a representative
+              </span>
+            </CustomButton>
+            <div className="w-[28.125rem]">
+              <CustomButton
+                variant="outlined"
+                icon1={<img src={UpRightArrowRed} />}
+              >
+                <span className="text-[10px] md:text-base">
+                  Visit telegram group
+                </span>
+              </CustomButton>
+            </div>
+          </div>
+        </div>
       </section>
-      <section className="pt-23 px-10 flex flex-col gap-10 ">
+      <section className="pt-23  hidden md:flex px-10 flex-col gap-10 ">
         <h3 className="text-primary-red uppercase text-2xl font-black tracking-wider">
           A little more about my journey thus far...
         </h3>

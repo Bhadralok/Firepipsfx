@@ -46,7 +46,7 @@ export default function BillingCard({
 
   return (
     <div
-      className={`${style} w-[390px] shadow-xl px-6 py-8 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl`}
+      className={`${style} w-[390px] shrink-0 shadow-xl px-6 py-8 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl`}
     >
       <div className="flex flex-col gap-5">
         <h4

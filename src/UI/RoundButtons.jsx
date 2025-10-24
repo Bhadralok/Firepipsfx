@@ -1,13 +1,8 @@
-export default function RoundButtons({ icon, onClick, isRed = true }) {
-  let style;
-  if (isRed) {
-    style = "bg-white text-primary-red";
-  }
-  
+export default function RoundButtons({ icon, onClick }) {
   return (
     <div>
       <button
-        className={` ${style} rounded-full shadow-xl size-[60px] flex items-center justify-center bg-secondary-red text-primary-red`}
+        className={`rounded-full md:opacity-100 opacity-40 shadow-xl md:size-[60px] size-10  flex items-center justify-center bg-secondary-red text-primary-red`}
         onClick={onClick}
       >
         <span>{icon}</span>

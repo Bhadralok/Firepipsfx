@@ -17,7 +17,7 @@ import forex from "../assets/forex.svg";
 import Live from "../assets/Live.svg";
 import Book from "../assets/Book.svg";
 import curriculum from "../assets/Curriculum.svg";
-
+import learning from "../assets/learning.svg";
 import rocket from "../assets/rocket.svg";
 import buttonArrow from "../assets/buttonArrow.svg";
 import pageLine from "../assets/pageLine.svg";
@@ -29,9 +29,12 @@ import ReviewCard from "../UI/ReviewCard";
 import starIcon from "../assets/starIcon.svg";
 import gotoLine from "../assets/gotoLine.svg";
 import google from "../assets/google.svg";
-import Footer from "../Components/Footer";
 import AboutSection from "../Components/AboutSection";
 import Curriculum from "../Components/Curriculum";
+import { useNavigate } from "react-router-dom";
+import buttoniconred from "../assets/buttoniconred.svg";
+import footerMobileLine from "../assets/footerMobileLine.svg";
+import memberline from "../assets/memberline.svg";
 
 export default function LandingPage() {
   const [index, setIndex] = useState(0);
@@ -39,6 +42,8 @@ export default function LandingPage() {
   const scrollRef = useRef(null);
 
   const name = "JEFFREY BENSON";
+
+  const navigate = useNavigate();
 
   const handleNext = () => {
     setIndex((prev) => (prev + 1) % images.length);
@@ -76,44 +81,48 @@ export default function LandingPage() {
           />
         </div>
         {index === 0 && (
-          <div className="flex flex-col w-[40vw] gap-7 items-center justify-center">
-            <h1 className="text-5xl font-medium text-white text-center leading-normal">
+          <div className="flex flex-col md:w-[40vw] gap-7 items-center justify-center">
+            <h1 className="md:text-5xl text-2xl font-medium text-white text-center leading-normal">
               Welcome to <br />
               <em className="not-italic font-black ">FirepipsFx Academy!</em>
             </h1>
-            <p className="text-white font-medium leading-normal text-sm text-center">
+            <p className="text-white font-medium leading-normal md:text-sm text-[12px] px-5 text-center">
               Start your journey to mastering Forex Trading with one of the best
               in the world! Go from a beginner to an advanced FX trader with the
               one and only <em className="font-black not-italic">{name}</em>.
               Enroll now to gain access to over 80 in-depth courses that
               carefully explains the extreme complexities of the forex market.
             </p>
-            <div className="flex gap-6 w-[29.75rem]">
-              <CustomButton icon1={<MdKeyboardDoubleArrowDown size={24} />}>
-                Enroll with us now
-              </CustomButton>
-              <CustomButton
-                variant="whiteOutline"
-                icon1={<FiArrowUpRight size={20} />}
-              >
-                Get forex signals
-              </CustomButton>
+            <div className="flex gap-6 md:w-[29.75rem]">
+              <div className="md:w-fit w-full">
+                <CustomButton icon1={<MdKeyboardDoubleArrowDown size={24} />}>
+                  Enroll with us now
+                </CustomButton>
+              </div>
+              <div className="md:block hidden">
+                <CustomButton
+                  variant="whiteOutline"
+                  icon1={<FiArrowUpRight size={20} />}
+                >
+                  Get forex signals
+                </CustomButton>
+              </div>
             </div>
           </div>
         )}
         {index === 1 && (
-          <div className="flex flex-col w-[40vw] gap-5 items-center justify-center">
-            <h1 className="text-5xl font-medium text-white text-center leading-normal">
+          <div className="flex flex-col md:w-[40vw] gap-7 items-center justify-center">
+            <h1 className="md:text-5xl text-2xl font-medium text-white text-center leading-normal">
               Watch&nbsp;
               <em className="not-italic font-black ">Jeffrey</em>
               &nbsp;trade forex&nbsp; <br />
               <em className="not-italic font-black ">Seemlessly...</em>
             </h1>
-            <p className="text-white font-medium  text-sm text-center">
+            <p className="text-white font-medium leading-normal md:text-sm text-[12px] px-5 text-center">
               Take the first class for free and watch one of the best forex
               trader in the world introduce you to the academy!
             </p>
-            <div className="flex gap-6 w-[207px]">
+            <div className="flex gap-6 md:w-[207px] w-full">
               <CustomButton icon1={<img src={arrowRight} />}>
                 Take a free tour
               </CustomButton>
@@ -121,12 +130,12 @@ export default function LandingPage() {
           </div>
         )}
         {index === 2 && (
-          <div className="flex flex-col w-[40vw] gap-7 items-center justify-center">
-            <h1 className="text-5xl font-medium text-white text-center">
+          <div className="flex flex-col md:w-[40vw] gap-7 items-center justify-center">
+            <h1 className="md:text-5xl text-2xl font-medium text-white text-center leading-normal">
               Need more&nbsp;
               <em className="not-italic font-black ">Information?</em>
             </h1>
-            <p className="text-white font-medium leading-normal text-sm text-center">
+            <p className="text-white font-medium leading-normal md:text-sm text-[12px] px-5 text-center">
               Create a{" "}
               <em className="font-black not-italic">support request ticket</em>{" "}
               to tell us the issue you are experiencing with our services or ask
@@ -135,8 +144,11 @@ export default function LandingPage() {
               also talk to our support team using our Whatsapp customer support
               platform.
             </p>
-            <div className="flex gap-6 w-[35.75rem]">
-              <CustomButton icon2={<AiOutlinePlus size={20} />}>
+            <div className="flex md:flex-row flex-col px-5 w-fullzq gap-6 md:w-[35.75rem]">
+              <CustomButton
+                icon2={<AiOutlinePlus size={20} />}
+                onClick={() => navigate("/support")}
+              >
                 Create a support ticket
               </CustomButton>
               <CustomButton
@@ -159,37 +171,54 @@ export default function LandingPage() {
 
       <section className="pt-20 px-10">
         <div className="text-primary-black flex items-center gap-5 ">
-          <img src={Meet} alt="" />
-          <h2 className="font-medium text-5xl leading-normal">
+          <div className="">
+            <img src={learning} alt="" className="md:size-[90px] size-12.5" />
+          </div>
+          <h2 className="font-medium md:text-5xl text-2xl text-primary-black leading-normal">
             Learning with{" "}
-            <em className="not-italic font-black text-5xl">
+            <em className="not-italic font-black md:text-5xl">
               Firepipsfx <br /> Academy
             </em>
             &nbsp;offers you...
           </h2>
         </div>
-        <div className="flex gap-5 items-center pt-19 justify-between">
+        <div className="md:flex gap-5 items-center md:pt-19 pt-10  justify-between">
           <CustomCards
             cardIcon={vast}
             body="We foster a trading community of over 100,000 subscribers where high
                   quality signals, trading resources and tools are shared for free."
             buttonText="Join our community"
           />
-          <img src={cardLineRed} alt="" />
+          <img src={cardLineRed} alt="" className=" hidden md:block" />
+          <img
+            src={footerMobileLine}
+            alt=""
+            className=" md:hidden block w-full"
+          />
           <CustomCards
             cardIcon={forex}
             header="Forex enlightenment"
             body="We provide a robust curriculum that covers everything from forex basics to advanced trading strategies. Our aim is to equip you with the knowledge and skills you need to thrive in the forex market."
             buttonText="Enroll now and get started"
           />
-          <img src={cardLineRed} alt="" />
+          <img src={cardLineRed} alt="" className=" hidden md:block" />
+          <img
+            src={footerMobileLine}
+            alt=""
+            className=" md:hidden block w-full"
+          />
           <CustomCards
             cardIcon={Live}
             header="Live trading sessions with professionals"
             body="Our free live trading session on YouTube every Monday 1:00 PM GMT+1 was created to help traders improve their trading and be consistently profitable."
             buttonText="Enroll now to join waitlist"
           />
-          <img src={cardLineRed} alt="" />
+          <img src={cardLineRed} alt="" className=" hidden md:block" />
+          <img
+            src={footerMobileLine}
+            alt=""
+            className=" md:hidden block w-full"
+          />
           <CustomCards
             cardIcon={Book}
             header="One-on-one mentorship calls"
@@ -198,24 +227,26 @@ export default function LandingPage() {
           />
         </div>
       </section>
-      <section className="pt-22 px-10">
-        <div className="flex gap-5 pb-15">
-          <img src={curriculum} alt="" />
-          <h2 className="text-5xl leading-normal">
+
+      <section className="md:pt-22 pt-8 px-10">
+        <div className="flex gap-5 items-center md:pb-15 pb-10">
+          <img src={curriculum} alt="" className="md:size-[90px] size-[50px]" />
+          <h2 className="md:text-5xl text-2xl font-medium leading-normal">
             Check out our learning <br />{" "}
             <em className="not-italic font-black">Curriculum</em>
           </h2>
         </div>
         <Curriculum />
       </section>
+
       <section className="pt-20 px-10">
-        <div className="text-primary-black text-5xl flex gap-6 pb-12 items-center">
-          <img src={rocket} alt="" />
+        <div className="text-primary-black md:text-5xl text-2xl flex gap-6 pb-12 items-center">
+          <img src={rocket} alt="" className="md:size-[90px] size-12.5" />
           <h2 className="font-medium">
             Our membership <em className="not-italic font-black">Plans</em>
           </h2>
         </div>
-        <p className="text-secondary-black font-medium text-justify">
+        <p className="text-secondary-black md:text-base text-[12px] font-medium text-justify">
           We offer online and physical mentorship classes in our branches at
           Lagos and Delta state Nigeria. You can pay for our online mentorship
           by choosing a plan below to get started. If you would prefer our
@@ -223,47 +254,57 @@ export default function LandingPage() {
           button below.
         </p>
         <div className="pt-8">
-          <button className="bg-primary-red cursor-pointer text-white flex font-bold items-center gap-2.5 rounded-br-3xl rounded-tl-3xl rounded-bl-3xl p-2 py-2 pl-5">
+          <button className="md:bg-primary-red md:text-base text-[10px] bg-secondary-red cursor-pointer md:text-white text-primary-red flex font-bold items-center gap-2.5 rounded-br-3xl rounded-tl-3xl rounded-bl-3xl p-2 py-2 pl-5">
             Enroll to our physical class
             <span>
-              <img src={buttonArrow} alt="" />
+              <img src={buttonArrow} alt="" className="hidden md:block" />
+              <img src={buttoniconred} alt="" className="md:hidden block" />
             </span>
           </button>
           <div className="pt-8 w-full">
-            <img src={pageLine} alt="" className="w-full" />
+            <img src={pageLine} alt="" className="w-full hidden md:block" />
+            <img src={memberline} alt="" className="w-full md:hidden" />
           </div>
         </div>
-        <div className="pt-10 flex gap-4 justify-between items-center">
-          <BillingCard
-            price="79"
-            billingDescription="What you will get with this plan..."
-            benefits={MonthlyBenefits}
-          />
-          <BillingCard
-            price="197"
-            billingDescription="You will get everything in the monthly plan plus..."
-            benefits={threeMonthsBenefits}
-            duration="3 months plan"
-          />
-          <BillingCard
-            icon={star}
-            paragraph="popular"
-            price="339"
-            benefits={sixMonthsBenefits}
-            billingDescription="You will get everything in the 3 months plan plus..."
-            duration="6 months plan"
-          />
-          <BillingCard
-            icon={cup}
-            paragraph="top tier"
-            price="599"
-            benefits={yearlyBenefits}
-            benefitStyle="text-placeholder-gray"
-            billingDescription="You will get everything in the 6 months plan plus..."
-            duration="yearly plan"
-          />
+        <div>
+          <div
+            className="pt-10 flex gap-4 relative justify-between overflow-x-auto items-center"
+            // className="flex overflow-x-auto scroll-smooth pb-10 md:pr-20 justify-center relative gap-5"
+            style={{ scrollbarWidth: "none" }}
+          >
+
+            <BillingCard
+              price="79"
+              billingDescription="What you will get with this plan..."
+              benefits={MonthlyBenefits}
+            />
+            <BillingCard
+              price="197"
+              billingDescription="You will get everything in the monthly plan plus..."
+              benefits={threeMonthsBenefits}
+              duration="3 months plan"
+            />
+            <BillingCard
+              icon={star}
+              paragraph="popular"
+              price="339"
+              benefits={sixMonthsBenefits}
+              billingDescription="You will get everything in the 3 months plan plus..."
+              duration="6 months plan"
+            />
+            <BillingCard
+              icon={cup}
+              paragraph="top tier"
+              price="599"
+              benefits={yearlyBenefits}
+              benefitStyle="text-placeholder-gray"
+              billingDescription="You will get everything in the 6 months plan plus..."
+              duration="yearly plan"
+            />
+          </div>
         </div>
       </section>
+
       <section className="pb-30 pt-20 overflow-hidden">
         <div className="text-5xl px-10 text-primary-black flex font-medium gap-6">
           <img src={experiences} alt="" />
@@ -273,14 +314,14 @@ export default function LandingPage() {
           </h2>
         </div>
         <div className="relative w-full pt-15 pl-10">
-          <div className="flex items-center z-40 pr-20 justify-between w-full flex-nowrap absolute top-[50%] bottom-[50%]">
-            <div className="hover:opacity-100 opacity-20">
+          <div className="flex items-center z-40 md:pr-20 pr-20 justify-between w-full flex-nowrap absolute top-[50%] bottom-[50%]">
+            <div className="md:hover:opacity-100 md:opacity-20">
               <RoundButtons
                 icon={<IoArrowBackSharp size={24} />}
                 onClick={handleBackward}
               />
             </div>
-            <div className="hover:opacity-100 opacity-20">
+            <div className="md:hover:opacity-100 md:opacity-20">
               <RoundButtons
                 icon={<IoArrowForwardSharp size={24} />}
                 onClick={handleForward}
@@ -289,7 +330,7 @@ export default function LandingPage() {
           </div>
           <div
             ref={scrollRef}
-            className="flex overflow-x-auto scroll-smooth pb-10 pr-20 relative gap-5"
+            className="flex overflow-x-auto scroll-smooth pb-10 md:pr-20 relative gap-5"
             style={{ scrollbarWidth: "none" }}
           >
             <ReviewCard />

@@ -4,7 +4,7 @@ import ReviewNav from "./reviewNav";
 
 export default function ReviewCard() {
   return (
-    <div className="px-5 pt-5 pb-10 flex flex-shrink-0 flex-col gap-7 shadow-xl w-[320px] rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl">
+    <div className="px-5 pt-5 pb-10 flex flex-shrink-0 box-shadow flex-col gap-7 shadow-xl w-[320px] rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl">
       <div className="flex items-center gap-2.5">
         <div className="overflow-hidden rounded-full">
           <img src={xaider} alt="" />

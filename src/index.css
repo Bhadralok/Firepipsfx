@@ -3,6 +3,9 @@
   scroll-behavior: smooth;
 }
 
+html {
+  @apply md:w-full w-[111%];
+}
 body {
   font-family: "Satoshi", sans-serif;
 }
@@ -100,4 +103,8 @@ ul > li {
   border-radius: 30px;
   background: var(--White, #fff);
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.box-shadow {
+  box-shadow: 0 6px 55px 10px rgba(0, 0, 0, 0.06);
 }

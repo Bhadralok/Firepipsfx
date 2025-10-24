@@ -86,12 +86,12 @@ export default function BlogDetails() {
           <span className="font-black">{firstName.toUpperCase()}</span>?
         </p>
         <div className="w-129 gap-4 flex">
-          <CustomButton
-            icon2={<FiArrowUpLeft size={18} />}
-            onClick={() => navigate("/blog")}
-          >
-            <span className="text-sm">Read more blogposts</span>
-          </CustomButton>
+            <CustomButton
+              icon2={<FiArrowUpLeft size={18} />}
+              onClick={() => navigate("/blog")}
+            >
+              <span className="text-sm">Read more blogposts</span>
+            </CustomButton>
           <CustomButton
             icon1={<img src={upRightArrowRed} />}
             variant="outlined"

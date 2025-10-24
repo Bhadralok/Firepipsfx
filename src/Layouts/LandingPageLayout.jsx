@@ -9,7 +9,7 @@ export default function LandingPageLayout() {
       <div className="">
         <Outlet />
       </div>
-      <div>
+      <div className="">
         <Footer />
       </div>
     </div>
