@@ -21,8 +21,8 @@ export default function AboutSection({ id }) {
             Meet your <em className="not-italic font-black">Mentor...</em>
           </h2>
         </div>
-        <div className="flex md:flex-row flex-col gap-10 md:gap-17 justify-between">
-          <div className="flex flex-col relative md:text-[25px] text-sm gap-5 text-justify md:w-[55vw] text-secondary-black font-medium pt-7.5 md:pt-19">
+        <div className="flex md:flex-row flex-col gap-10 md:gap-17 md:items-start justify-between">
+          <div className="flex flex-col md:text-[25px] text-sm gap-5 text-justify md:w-[55vw] text-secondary-black font-medium pt-7.5 md:pt-19">
             <p>
               <span className="text-primary-red font-black md:text-[22px]">
                 {name}
@@ -39,6 +39,7 @@ export default function AboutSection({ id }) {
             </p>
             {/* <div className="h-41 w-[2px] bg-red-500 top-88 absolute"></div> */}
           </div>
+          
           <div className="inline-block bg-cover bg-center">
             <img
               src={MeetCoverImg}

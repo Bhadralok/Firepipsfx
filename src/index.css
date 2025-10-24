@@ -3,9 +3,10 @@
   scroll-behavior: smooth;
 }
 
-html {
-  @apply md:w-full w-[111%];
-}
+/* html {
+  @apply md:w-full max-w-[100%];
+} */
+
 body {
   font-family: "Satoshi", sans-serif;
 }

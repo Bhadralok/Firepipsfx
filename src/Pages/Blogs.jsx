@@ -23,7 +23,7 @@ export default function Blogs() {
   return (
     <div className="pt-36 px-10">
       <div className="flex items-center pb-15 justify-between">
-        <h1 className="blog-h1">FirepipsFX Blog</h1>
+        <h1 className="font-black md:text-5xl text-2xl">FirepipsFX Blog</h1>
         <p className="flex items-center gap-2 justify-center font-black">
           All blogs{" "}
           <span className="size-6 flex items-center justify-center text-[10px] bg-primary-red text-white rounded-full">
@@ -32,7 +32,7 @@ export default function Blogs() {
         </p>
       </div>
       {!blogData || blogData.length === 0 ? (
-        <div className="h-[70vh] w-full flex items-center justify-center">
+        <div className="md:h-[70vh] h-[50vh] w-full flex items-center justify-center">
           <div className="flex flex-col items-center text-center justify-center gap-9">
             <div>
               <img src={blognotfound} alt="" />

@@ -66,7 +66,7 @@ export default function Footer() {
   return (
     <footer className="h-fit w-full px-10 pb-12.5 pt-12.5 flex flex-col gap-7.5 text-white bg-primary-black">
       <div className="md:flex gap-12.5 items-center justify-between">
-        <div className="w-[450px] flex flex-col gap-7.5">
+        <div className="md:w-[450px] flex flex-col gap-7.5">
           <div className="size-11 md:size-20">
             <img src={megaphone} alt="" />
           </div>
@@ -111,7 +111,7 @@ export default function Footer() {
           <img src={footerMobileLine} className="md:hidden w-full" />
         </div>
 
-        <div className="w-[450px] flex flex-col">
+        <div className="md:w-[450px]flex flex-col">
           <ul className="text-placeholder-gray font-medium text-sm flex flex-col gap-6">
             <li>
               <h4 className="font-bold text-white text-base ">
@@ -119,7 +119,9 @@ export default function Footer() {
               </h4>
             </li>
             <li>About</li>
-            <li onClick={() => navigate("/plans")}>MentorShip Plans</li>
+            <li onClick={() => navigate("/plans")}>
+              <button>MentorShip Plans</button>
+            </li>
             <li onClick={() => navigate("/blog")}>Blogs</li>
             <li onClick={() => navigate("/faqs")}>FAQs</li>
             <li onClick={() => navigate("/support")}>Support</li>
@@ -156,8 +158,8 @@ export default function Footer() {
           <img src={footerMobileLine} className="md:hidden w-full" />
         </div>
 
-        <div className="w-[450px] flex flex-col">
-          <div className="flex flex-col md:text-right gap-10 md:items-end">
+        <div className="md:w-[450px] flex flex-col">
+          <div className="flex flex-col md:text-right  w-fit gap-10 md:items-end">
             <div>
               <img src={logoWhite} alt="" />
             </div>
@@ -171,9 +173,9 @@ export default function Footer() {
               </p>
               <p>+2347003473747</p>
             </div>
-            <div className="flex flex-col gap-5">
-              <p className="font-bold">Connect with us on social media</p>
-              <div className="flex gap-7.5 items-center">
+            <div className="flex flex-col x gap-5">
+              <p className="font-bold ">Connect with us on social media</p>
+              <div className="flex gap-7.5 items-center w-fit">
                 <img src={telegram} alt="" />
                 <img src={phone} alt="" />
                 <img src={tiktok} alt="" />

@@ -272,7 +272,6 @@ export default function LandingPage() {
             // className="flex overflow-x-auto scroll-smooth pb-10 md:pr-20 justify-center relative gap-5"
             style={{ scrollbarWidth: "none" }}
           >
-
             <BillingCard
               price="79"
               billingDescription="What you will get with this plan..."
@@ -306,8 +305,8 @@ export default function LandingPage() {
       </section>
 
       <section className="pb-30 pt-20 overflow-hidden">
-        <div className="text-5xl px-10 text-primary-black flex font-medium gap-6">
-          <img src={experiences} alt="" />
+        <div className="md:text-5xl items-center text-2xl px-10 text-primary-black flex font-medium gap-6">
+          <img src={experiences} alt="" className="md:size-22.5 size-12.5" />
           <h2 className="leading-normal">
             Hear our students learning <br />
             <em className="not-italic font-black">Experiences</em>
@@ -351,27 +350,31 @@ export default function LandingPage() {
               Check them out on TrustPilot and Google Reviews
             </p>
           </div>
-          <div className="flex items-center pt-7.5 gap-10">
-            <div className="flex items-center gap-5">
+          <div className="flex items-center pt-7.5 md:gap-10 gap-5 md:justify-start justify-between">
+            <div className="flex items-center gap-2">
               <RoundButtons icon={<img src={starIcon} />} />
-              <p className="font-medium text-sm leading-loose text-secondary-black">
-                Go to <br />
-                <em className="text-primary-black text-base not-italic font-black">
-                  TrustPilot
-                </em>
-              </p>
-              <img src={arrowRight} alt="" className="invert" />
+              <div className="flex gap-4">
+                <p className="font-medium md:text-sm text-[12px] leading-loose text-secondary-black">
+                  Go to <br />
+                  <em className="md:text-primary-black text-primary-red md:text-sm text-[12px] text-base not-italic font-black">
+                    TrustPilot
+                  </em>
+                </p>
+                <img src={arrowRight} alt="" className="invert" />
+              </div>
             </div>
-            <img src={gotoLine} alt="" />
-            <div className="flex items-center gap-5">
+            <img src={gotoLine} alt="" className="" />
+            <div className="flex items-center gap-2">
               <RoundButtons icon={<img src={google} />} />
-              <p className="font-medium text-sm leading-loose text-secondary-black">
-                Go to <br />
-                <em className="text-primary-black not-italic text-base font-black">
-                  Google Reviews
-                </em>
-              </p>
-              <img src={arrowRight} alt="" className="invert" />
+              <div className="flex gap-4">
+                <p className="font-medium md:text-sm text-[12px] text-sm leading-loose text-secondary-black">
+                  Go to <br />
+                  <em className="md:text-primary-black text-primary-red md:text-sm text-[12px] not-italic text-base font-black">
+                    Google Reviews
+                  </em>
+                </p>
+                <img src={arrowRight} alt="" className="invert" />
+              </div>
             </div>
           </div>
         </div>
