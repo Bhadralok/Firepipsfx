@@ -109,3 +109,11 @@ ul > li {
 .box-shadow {
   box-shadow: 0 6px 55px 10px rgba(0, 0, 0, 0.06);
 }
+
+.glass-header {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  color: black;
+}

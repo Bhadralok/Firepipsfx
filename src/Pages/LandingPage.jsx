@@ -74,8 +74,9 @@ export default function LandingPage() {
         style={{ backgroundImage: `url(${images[index]})` }}
         className="flex items-center px-5 justify-between h-screen bg-cover bg-center transition-all duration-700"
       >
-        <div>
+        <div className="">
           <RoundButtons
+            opacity=""
             onClick={handlePrev}
             icon={<IoArrowBackSharp size={24} />}
           />
@@ -93,10 +94,12 @@ export default function LandingPage() {
               Enroll now to gain access to over 80 in-depth courses that
               carefully explains the extreme complexities of the forex market.
             </p>
-            <div className="flex gap-6 md:w-[29.75rem]">
+            <div className="flex gap-6 md:w-[29.75rem] w-full">
               <div className="md:w-fit w-full">
                 <CustomButton icon1={<MdKeyboardDoubleArrowDown size={24} />}>
-                  Enroll with us now
+                  <span className="md:text-sm text-[10px]">
+                    Enroll with us now
+                  </span>
                 </CustomButton>
               </div>
               <div className="md:block hidden">
@@ -124,7 +127,7 @@ export default function LandingPage() {
             </p>
             <div className="flex gap-6 md:w-[207px] w-full">
               <CustomButton icon1={<img src={arrowRight} />}>
-                Take a free tour
+                <span className="md:text-sm text-[10px]">Take a free tour</span>
               </CustomButton>
             </div>
           </div>
@@ -144,18 +147,22 @@ export default function LandingPage() {
               also talk to our support team using our Whatsapp customer support
               platform.
             </p>
-            <div className="flex md:flex-row flex-col px-5 w-fullzq gap-6 md:w-[35.75rem]">
+            <div className="flex md:flex-row flex-col px-5 w-full gap-4 md:w-[35.75rem]">
               <CustomButton
                 icon2={<AiOutlinePlus size={20} />}
                 onClick={() => navigate("/support")}
               >
-                Create a support ticket
+                <span className="md:text-sm text-[10px]">
+                  Create a support ticket
+                </span>
               </CustomButton>
               <CustomButton
                 variant="whiteOutline"
                 icon1={<FiArrowUpRight size={20} />}
               >
-                Talk to us on Whatsapp
+                <span className="md:text-sm text-[10px]">
+                  Talk to us on Whatsapp
+                </span>
               </CustomButton>
             </div>
           </div>
@@ -163,6 +170,7 @@ export default function LandingPage() {
         <div>
           <RoundButtons
             onClick={handleNext}
+            opacity=""
             icon={<IoArrowForwardSharp size={24} />}
           />
         </div>

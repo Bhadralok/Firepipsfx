@@ -8,7 +8,7 @@ export default function SupportPageSent({ onClick }) {
   return (
     <div className="px-7.5 py-10 flex support-container flex-col items-center justify-center gap-7.5 text-center">
       <img src={sent} alt="" />
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-lo5">
         <h1>Your message has been sent!</h1>
         <p>Expect a response from us in the next 2 - 4 hours.</p>
       </div>

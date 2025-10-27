@@ -21,7 +21,7 @@ export default function Blogs() {
   console.log(last);
 
   return (
-    <div className="pt-36 px-10">
+    <div className="md:pt-36 pt-30 md:px-10 px-4">
       <div className="flex items-center pb-15 justify-between">
         <h1 className="font-black md:text-5xl text-2xl">FirepipsFX Blog</h1>
         <p className="flex items-center gap-2 justify-center font-black">
@@ -49,7 +49,7 @@ export default function Blogs() {
           </div>
         </div>
       ) : (
-        <div className="pb-40 flex gap-10 px-10 flex-wrap items-center justify-left ">
+        <div className="md:pb-40 pb-16 flex gap-10 md:px-10 md:flex-wrap md:flex-row flex-col items-center md:justify-left ">
           {blogData.map((blog) => (
             <BlogCard
               key={blog.id}

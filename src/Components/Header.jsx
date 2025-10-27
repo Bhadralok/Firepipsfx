@@ -23,8 +23,8 @@ export default function Header() {
   const scrollToTop = () => window.scrollTo({ top: 0 });
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-lg">
-      <div className="flex items-center  justify-between px-6 md:px-10 py-4">
+    <header className="fixed top-0 left-0 md:px-0 w-full z-50 glass-header shadow-lg">
+      <div className="flex items-center justify-between px-6 md:px-10 py-4">
         <img
           src={Logo}
           alt="Logo"
