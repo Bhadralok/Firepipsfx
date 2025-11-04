@@ -42,7 +42,7 @@ body {
   @apply font-medium text-secondary-black text-[12px] md:text-sm;
 }
 .inputs {
-  @apply rounded-tr-[20px] rounded-bl-[20px] rounded-tl-[20px];
+  @apply md:rounded-none rounded-tr-[20px] rounded-bl-[20px] rounded-tl-[20px];
 }
 @layer utilities {
   /* Hide arrows in number inputs (Chrome, Safari, Edge) */
@@ -99,7 +99,7 @@ ul > li {
 }
 
 .box-shadow {
-  box-shadow: 0 6px 55px 10px rgba(255, 0, 0, 0.06);
+  box-shadow: 0 6px 55px 10px rgba(0, 0, 0, 0.06);
 }
 .box-shadow-lg {
   @apply md:shadow-none shadow-[1px_-1px_40px_5px_rgba(0,0,0,0.12)];

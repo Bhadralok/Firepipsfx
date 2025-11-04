@@ -276,7 +276,7 @@ export default function LandingPage() {
         </div>
         <div>
           <div
-            className="pt-10 flex gap-4 relative justify-between overflow-x-auto items-center"
+            className="pt-10 flex gap-6 pl-4 relative justify-between overflow-x-auto items-center"
             // className="flex overflow-x-auto scroll-smooth pb-10 md:pr-20 justify-center relative gap-5"
             style={{ scrollbarWidth: "none" }}
           >
@@ -337,7 +337,7 @@ export default function LandingPage() {
           </div>
           <div
             ref={scrollRef}
-            className="flex overflow-x-auto scroll-smooth pb-10 md:pr-20 relative gap-5"
+            className="flex overflow-x-auto scroll-smooth pl-4 pt-4 pb-10 md:pr-20 relative gap-5"
             style={{ scrollbarWidth: "none" }}
           >
             <ReviewCard />

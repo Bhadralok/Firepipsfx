@@ -23,13 +23,13 @@ export default function Header() {
   const scrollToTop = () => window.scrollTo({ top: 0 });
 
   return (
-    <header className="fixed top-0 left-0 md:px-0 w-full z-50 glass-header shadow-lg">
-      <div className="flex items-center justify-between px-6 md:px-10 py-4">
+    <header className="fixed top-0 left-0 md:px-0 w-full z-50">
+      <div className="flex box-shadow bg-white inputs md:rounded-none m-4 md:m-0 glass-header items-center justify-between px-6 md:px-10 py-4.5 md:py-4">
         <img
           src={Logo}
           alt="Logo"
           onClick={() => navigate("/")}
-          className="cursor-pointer w-32"
+          className="cursor-pointer md:w-32"
         />
 
         {/* Desktop Nav */}
@@ -82,7 +82,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white shadow-lg border-t">
+        <div className="md:hidden bg-white shadow-lg ">
           <ul className="flex flex-col gap-4 p-6 font-semibold">
             {navLinks.map((link) => (
               <NavLink
