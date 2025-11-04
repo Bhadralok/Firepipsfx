@@ -55,7 +55,7 @@ export default function BlogDetails() {
     );
 
   return (
-    <div className="px-10 py-40">
+    <div className="px-10 py-30 md:py-40">
       <div className="md:flex items-center gap-5 w-full">
         {/* Desktop view */}
         <div className="  hidden md:flex flex-col gap-11 w-full">
@@ -75,8 +75,8 @@ export default function BlogDetails() {
           </div>
         </div>
         {/* Mobile view */}
-        <div className="h-fit md:hidden pb-10 inputs overflow-hidden">
-          <img src={blog.image} alt="" className="" />
+        <div className="h-fit md:hidden pb-10 inputs w-full overflow-hidden">
+          <img src={blog.image} alt="" className="inputs object-cover w-full" />
         </div>
         <div className=" flex flex-col fit md:hidden gap-11 w-full">
           <div className="w-fit ">
@@ -105,7 +105,8 @@ export default function BlogDetails() {
       <div className="pt-15 gap-5 flex flex-col">
         <p>
           Enjoy this piece by{" "}
-          <span className="font-black">{firstName.toUpperCase()}</span><span className="font-black">?</span>
+          <span className="font-black">{firstName.toUpperCase()}</span>
+          <span className="font-black">?</span>
         </p>
         <div className="md:w-129 w-fit flex-wrap gap-4 flex">
           <div>
