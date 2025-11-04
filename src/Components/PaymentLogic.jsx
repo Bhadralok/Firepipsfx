@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import LineButton from "../UI/LineButton";
 import enroll from "../assets/Enroll.svg";
 import paymentLine from "../assets/paymentLine.svg";
@@ -15,6 +15,7 @@ import PlansButton from "../UI/PlansButton";
 export default function PaymentLogic() {
   const [isActive, setIsActive] = useState(true);
   const [isActive1, setIsActive1] = useState(false);
+  const scrollRef = useRef(null);
 
   const handleClick = () => {
     setIsActive(true);
@@ -33,6 +34,16 @@ export default function PaymentLogic() {
   const threeMonthsPrice = 197;
   const sixMonthsPrice = 339;
   const yearlyPrice = 599;
+
+  const handleScroll = (direction) => {
+    if (!scrollRef.current) return;
+    const scrollAmount = 400; // adjust scroll distance
+    if (direction === "left") {
+      scrollRef.current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    } else {
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+  };
 
   return (
     <div>
@@ -129,11 +140,17 @@ export default function PaymentLogic() {
           </div>
         ) : (
           <>
-            <div className="flex gap-2.5 w-full md:hidden justify-end">
-              <PlansButton isLeft={true} />
-              <PlansButton isLeft={false} />
+            <div className="flex gap-2.5 pt-4 w-full md:hidden justify-end">
+              <PlansButton isLeft={true} onClick={() => handleScroll("left")} />
+              <PlansButton
+                isLeft={false}
+                onClick={() => handleScroll("right")}
+              />
             </div>
-            <div className="flex p-10 box-shadow rounded-3xl gap-5 flex-row items-center overflow-hidden md:overflow-auto justify-between w-full">
+            <div
+              ref={scrollRef}
+              className="flex px-4  pt-7 pb-10 gap-5 flex-row items-center overflow-auto md:overflow-auto justify-between w-full"
+            >
               <BillingCard
                 price={monthlyPrice}
                 benefits={MonthlyBenefits}
