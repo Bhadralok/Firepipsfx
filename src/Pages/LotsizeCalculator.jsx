@@ -4,58 +4,73 @@ import CustomButton from "../UI/CustomButton";
 import CustomInput from "../UI/CustomInput";
 import Results from "../UI/Results";
 import calculateLineRed from "../assets/calculateLineRed.svg";
+import blogRedLine from "../assets/blogRedLine.svg";
 
 export default function LotsizeCalculator() {
   const [isCalculated, setIsCalculated] = useState(false);
   const amountAtRisk = 25899.12;
   const [isValid, setIsValid] = useState(false);
+  const [selectedValue, setSelectedValue] = useState("");
   const [values, setValues] = useState({
     currency: "Default - USD",
     instrument: "Default - USD",
+    asking: "",
     balance: "",
     stopLoss: "",
     risk: "",
   });
+  const [currencyClicked, setCurrencyClicked] = useState(false);
 
   const handleSetValues = (key, value) => {
     setValues((c) => ({ ...c, [key]: value }));
+    const currency = value.split(" ")[0];
+    setSelectedValue(currency);
+    setCurrencyClicked(true);
   };
 
   useEffect(() => {
-    const valid = Object.values(values).every(
-      (value) =>  value !== ""
-    );
+    const valid = Object.values(values).every((value) => value !== "");
     if (valid) {
       setIsValid(true);
     }
   }, [values]);
 
-
   return (
-    <div className="h-full pt-24 px-10 flex flex-col gap-10">
-      <div className="pt-20 flex flex-col gap-7.5">
-        <h1 className="text-primary-black font-black text-5xl">
+    <div className="h-full w-full md:pt-24 pt-10 px-5 md:px-10 flex flex-col gap-10">
+      <div className="pt-20 flex flex-col gap-4 md:gap-7.5">
+        <h1 className="text-primary-black font-black text-2xl md:text-5xl">
           Lotsize Calculator
         </h1>
         <p className="paragraph">
           Enter the following information to accurately calculate your lotsize
         </p>
-        <img src={calculatorLine} alt="" />
+        <img src={calculatorLine} alt="" className="hidden md:block" />
+        <img src={blogRedLine} alt="" className="md:hidden w-full pt-7.5" />
       </div>
       <div className="w-full">
-        <div className="flex flex-col px-48 w-full items-center justify-center">
-          <form className="flex flex-col w-full items-center gap-15">
+        <div className="flex flex-col md:px-48 w-full items-center justify-center">
+          <form className="flex flex-col w-full items-center gap-6 md:gap-15">
             <div className="w-full">
               <CustomInput
                 isOption
                 config={{
-                  onChange: (e) => handleSetValues("currency", e),
+                  onClick: (e) => handleSetValues("currency", e),
                 }}
-                header="Account currency"
+                header={`Account currency`}
                 description="Select your account currency"
               />
             </div>
-            <div className="w-full flex gap-10">
+            {currencyClicked && (
+              <CustomInput
+                config={{
+                  value: values["asking"],
+                  onChange: (e) => handleSetValues("asking", e.target.value),
+                }}
+                header={`Asking price - ${selectedValue}/USD`}
+                description={`Enter the current asking price for ${selectedValue}/USD`}
+              />
+            )}
+            <div className="w-full flex md:flex-row flex-col gap-6 md:gap-10">
               <div className="w-full">
                 <CustomInput
                   config={{
@@ -63,7 +78,7 @@ export default function LotsizeCalculator() {
                   }}
                   header="Trading instrument"
                   description="Select an instrument"
-                  isOption  
+                  isOption
                 />
               </div>
               <CustomInput
@@ -73,7 +88,7 @@ export default function LotsizeCalculator() {
                 }}
               />
             </div>
-            <div className="w-full flex gap-10">
+            <div className="w-full flex md:flex-row flex-col gap-5 md:gap-10">
               <CustomInput
                 config={{
                   value: values["risk"],
@@ -93,23 +108,38 @@ export default function LotsizeCalculator() {
                 description="Enter the amount of stoploss"
               />
             </div>
-            <div className="w-[146px] pb-20 flex items-center justify-center">
-              <CustomButton
-                active={isValid}
-                onClick={() => setIsCalculated(true)}
-              >
-                <span className="text-sm">Calculate lotsize</span>
-              </CustomButton>
+            <div
+              className={`${
+                isCalculated ? "" : "pb-20"
+              } md:w-[146px] w-full flex items-center md:justify-center`}
+            >
+              <div>
+                <CustomButton
+                  active={isValid}
+                  onClick={() => setIsCalculated(true)}
+                >
+                  <span className="text-sm">Calculate lotsize</span>
+                </CustomButton>
+              </div>
             </div>
           </form>
         </div>
       </div>
       {isCalculated && (
-        <div className="w-full px-48">
-          <img src={calculatorLine} alt="" className="pb-10 w-full" />
-          <div className="flex flex-col gap-10">
-            <div className=" flex flex-col gap-5">
-              <h2 className="text-3xl w-full font-medium text-primary-black">
+        <div className="w-full md:px-48">
+          <div className="md:pb-10 hidden md:block w-full">
+            <img
+              src={calculatorLine}
+              alt=""
+              className="hidden md:block w-full"
+            />
+          </div>
+          <div className="pb-7.5 md:hidden">
+            <img src={blogRedLine} alt="" className="md:hidden w-full" />
+          </div>
+          <div className="flex flex-col gap-7.5 md:gap-10">
+            <div className=" flex flex-col gap-3 md:gap-5">
+              <h2 className="md:text-3xl text-[20px] w-full font-medium text-primary-black">
                 Results
               </h2>
               <p className="paragraph">
@@ -117,27 +147,34 @@ export default function LotsizeCalculator() {
                 have entered...
               </p>
             </div>
-            <div className="flex justify-between">
+            <div className="flex md:flex-row flex-col md:gap-0 gap-4 justify-between">
               <Results
                 description="Amount at risk"
                 price
                 units={amountAtRisk}
               />
-              <img src={calculateLineRed} alt="" />
+              <img src={calculateLineRed} alt="" className="hidden md:block" />
+              <img src={blogRedLine} alt="" className="md:hidden" />
               <Results
                 description="Position size - units"
                 units={amountAtRisk}
               />
-              <img src={calculateLineRed} alt="" />
+              <img src={calculateLineRed} alt="" className="hidden md:block" />
+              <img src={blogRedLine} alt="" className="md:hidden" />
+
               <Results description="Standard Lots" units={amountAtRisk} />
-              <img src={calculateLineRed} alt="" />
+              <img src={calculateLineRed} alt="" className="hidden md:block" />
+              <img src={blogRedLine} alt="" className="md:hidden" />
+
               <Results description="Mini Lots" units={amountAtRisk} />
-              <img src={calculateLineRed} alt="" />
+              <img src={calculateLineRed} alt="" className="hidden md:block" />
+              <img src={blogRedLine} alt="" className="md:hidden" />
+
               <Results description="Micro Lots" units={amountAtRisk} />
             </div>
             <div className="w-[8.625rem] pb-20">
               <CustomButton active onClick={() => setIsCalculated(false)}>
-                <span className="text-sm">Clear Results</span>
+                <span className="text-sm">Clear results</span>
               </CustomButton>
             </div>
           </div>

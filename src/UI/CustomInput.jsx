@@ -31,8 +31,8 @@ export default function CustomInput({
       {isOption ? (
         <div>
           {header && (
-            <div className="flex flex-col gap-5 w-full pb-7.5">
-              <h2 className="text-3xl w-full font-medium text-primary-black">
+            <div className="flex flex-col md:gap-5 gap-3 w-full pb-5 md:pb-7.5">
+              <h2 className="md:text-3xl text-[20px] w-full font-medium text-primary-black">
                 {header}
               </h2>
               <p className="paragraph">{description} </p>
@@ -41,10 +41,10 @@ export default function CustomInput({
           <Dropdown onChange={config?.onChange} items={items} />
         </div>
       ) : (
-        <div className="w-full flex flex-col gap-7.5 ">
+        <div className="w-full flex flex-col gap-3 md:gap-7.5 ">
           {header && (
-            <div className="flex flex-col gap-5">
-              <h2 className="text-3xl font-medium text-primary-black">
+            <div className="flex flex-col gap-3 md:gap-5">
+              <h2 className="md:text-3xl text-[20px] font-medium text-primary-black">
                 {header}
               </h2>
               <p className="paragraph">{description}</p>

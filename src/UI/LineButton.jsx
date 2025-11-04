@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function LineButton({ children, isActive = true, onClick }) {
   return (
     <button
@@ -7,7 +5,7 @@ export default function LineButton({ children, isActive = true, onClick }) {
         isActive === true
           ? `border-primary-red text-primary-red`
           : `border-placeholder-gray font-medium text-secondary-black`
-      } border-b-2  p-5 px-6 font-black text-sm`}
+      } border-b-2 p-5 w-full md:w-fit px-6 font-black text-sm`}
       onClick={onClick}
     >
       {children}

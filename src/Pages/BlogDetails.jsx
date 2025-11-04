@@ -56,8 +56,9 @@ export default function BlogDetails() {
 
   return (
     <div className="px-10 py-40">
-      <div className="flex items-center gap-5 w-full">
-        <div className="flex flex-col gap-11 w-full">
+      <div className="md:flex items-center gap-5 w-full">
+        {/* Desktop view */}
+        <div className="  hidden md:flex flex-col gap-11 w-full">
           <div className="w-fit ">
             <h1 className="blog-h1">{blog.title}</h1>
           </div>
@@ -73,7 +74,28 @@ export default function BlogDetails() {
             <BlogTemplate icon={calendar} Title="Posted on" desc={blog.date} />
           </div>
         </div>
-        <div className="w-[40%] h-fit inputs overflow-hidden bg-red-500">
+        {/* Mobile view */}
+        <div className="h-fit md:hidden pb-10 inputs overflow-hidden">
+          <img src={blog.image} alt="" className="" />
+        </div>
+        <div className=" flex flex-col fit md:hidden gap-11 w-full">
+          <div className="w-fit ">
+            <h1 className="blog-h1">{blog.title}</h1>
+          </div>
+          <div className="flex md:gap-5 gap-6 flex-wrap">
+            <BlogTemplate letter="O" Title="Author" desc={firstName} />
+            <img src={blogtemplateline} alt="" />
+            <BlogTemplate
+              icon={time}
+              Title="Estimated read time"
+              desc={blog.readTime}
+            />
+            <img src={blogtemplateline} alt="" />
+            <BlogTemplate icon={calendar} Title="Posted on" desc={blog.date} />
+          </div>
+        </div>
+
+        <div className="w-[40%] md:block hidden h-fit inputs overflow-hidden bg-red-500">
           <img src={blog.image} alt="" />
         </div>
       </div>
@@ -83,21 +105,29 @@ export default function BlogDetails() {
       <div className="pt-15 gap-5 flex flex-col">
         <p>
           Enjoy this piece by{" "}
-          <span className="font-black">{firstName.toUpperCase()}</span>?
+          <span className="font-black">{firstName.toUpperCase()}</span><span className="font-black">?</span>
         </p>
-        <div className="w-129 gap-4 flex">
+        <div className="md:w-129 w-fit flex-wrap gap-4 flex">
+          <div>
             <CustomButton
               icon2={<FiArrowUpLeft size={18} />}
               onClick={() => navigate("/blog")}
             >
-              <span className="text-sm">Read more blogposts</span>
+              <span className="text-[10px] md:text-sm">
+                Read more blogposts
+              </span>
             </CustomButton>
-          <CustomButton
-            icon1={<img src={upRightArrowRed} />}
-            variant="outlined"
-          >
-            <span className="text-sm">Enroll to FirepipsFx academy</span>
-          </CustomButton>
+          </div>
+          <div>
+            <CustomButton
+              icon1={<img src={upRightArrowRed} />}
+              variant="outlined"
+            >
+              <span className="text-[10px] md:text-sm">
+                Enroll to FirepipsFx academy
+              </span>
+            </CustomButton>
+          </div>
         </div>
       </div>
       <div className="py-7.5 w-full">

@@ -6,7 +6,7 @@ import { IoChevronDownSharp } from "react-icons/io5";
 export default function ExampleListbox({
   items = [
     "Default - USD",
-    "Nigerian Naira - NGN",
+    "NGN - Nigerian Naira",
     "GBP - British Pounds",
     "ZAR",
   ],
@@ -14,18 +14,16 @@ export default function ExampleListbox({
 }) {
   const [selected, setSelected] = useState(items[0]);
 
-
-
   const handleChange = (e) => {
-setSelected(e)
-onChange?.(e)
-  }
+    setSelected(e);
+    onChange?.(e);
+  };
 
   return (
     <div className="w-full flex flex-col">
       <Listbox value={selected} onChange={handleChange}>
         <div className="relative">
-          <Listbox.Button className="relative w-full cursor-default h-12.5 inputs px-5 text-left ring-2 ring-primary-red ">
+          <Listbox.Button className="relative w-full cursor-default h-12.5 inputs px-5 text-left  ring-2 ring-primary-red ">
             <span className="block truncate">{selected}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
               <IoChevronDownSharp
@@ -35,7 +33,7 @@ onChange?.(e)
             </span>
           </Listbox.Button>
 
-          <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto bg-white py-1 shadow-lg focus:outline-none">
+          <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto bg-white z-50 py-1 shadow-lg focus:outline-none">
             {items.map((person, id) => (
               <Listbox.Option
                 key={id}

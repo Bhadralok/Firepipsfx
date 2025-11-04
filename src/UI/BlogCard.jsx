@@ -1,5 +1,4 @@
 import CustomButton from "./CustomButton";
-import firstCover from "../assets/Cover-img1.webp";
 import arrowRight from "../assets/arrowRight.svg";
 import blogRedLine from "../assets/blogRedLine.svg";
 

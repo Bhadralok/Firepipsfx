@@ -1,8 +1,8 @@
 export default function Results({ units, price, description }) {
   return (
-    <div>
+    <div className="flex flex-col gap-3">
       <p className="paragraph">{description}</p>
-      <p className="text-xl font-black text-primary-black">
+      <p className="md:text-xl font-black text-primary-black">
         {price && `$`}
         {units}
       </p>

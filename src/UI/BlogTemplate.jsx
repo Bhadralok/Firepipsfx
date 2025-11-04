@@ -6,7 +6,7 @@ export default function BlogTemplate({ icon, letter, Title, desc }) {
       </div>
       <div className="flex flex-col">
         <div className="paragraph">{Title}</div>
-        <div className="font-black text-sm text-primary-black">{desc}</div>
+        <div className="font-black text-[12px] md:text-sm text-primary-black">{desc}</div>
       </div>
     </div>
   );

@@ -10,14 +10,19 @@ import BillingCard from "../UI/BillingCard";
 import Footer from "./Footer";
 import star from "../assets/star.svg";
 import cup from "../assets/cup.svg";
-
+import paymentLineBlack from "../assets/paymentLineBlack.svg";
+import PlansButton from "../UI/PlansButton";
 export default function PaymentLogic() {
   const [isActive, setIsActive] = useState(true);
   const [isActive1, setIsActive1] = useState(false);
 
   const handleClick = () => {
-    setIsActive(!isActive);
-    setIsActive1(!isActive1);
+    setIsActive(true);
+    setIsActive1(false);
+  };
+  const handleClick1 = () => {
+    setIsActive(false);
+    setIsActive1(true);
   };
 
   const priceInNaira = 250000;
@@ -34,39 +39,43 @@ export default function PaymentLogic() {
       <h2 className="font-bold text-sm  text-primary-black pt-7.5">
         Select a mentorship type
       </h2>
-      <div className="">
+      <div className="md:w-fit w-full flex ">
         <LineButton onClick={handleClick} isActive={isActive}>
           Physical mentorship
         </LineButton>
-        <LineButton onClick={handleClick} isActive={isActive1}>
+        <LineButton onClick={handleClick1} isActive={isActive1}>
           Online mentorship
         </LineButton>
       </div>
-      <div className="shadow-md w-full  p-7.5 pb-12 text-primary-black justify-between items-center flex gap-10">
+      <div className=" w-full py-4 md:p-7.5 md:pb-12 text-primary-black  md:flex-row flex-col flex gap-4 md:gap-2">
         {/* first container */}
         {isActive ? (
-          <>
-            <div className="">
-              <div className="w-[247px] h-[360px] text-primary-black">
+          <div className="py-5 px-4 rounded-3xl flex md:flex-row flex-col justify-between items-start w-full gap-5 box-shadow-lg">
+            <div className="w-full md:w-fit">
+              <div className="md:w-[247px] md:h-[360px] text-primary-black">
                 <h3 className="text-primary-red text-[40px] font-medium">
                   &#8358;
                   {newPrice}
                 </h3>
                 <p className="font-black text-[12px]">PER MONTH</p>
-                <p className="font-medium text-secondary-black text-[12px]">
+                <p className="font-medium text-secondary-black pb-11 text-[12px]">
                   Approx. ${priceInDollar}
                 </p>
               </div>
-              <div>
-                <button className="flex cursor-pointer bg-primary-red justify-center pr-1.5 pl-4 font-bold gap-2.5 p-2 rounded-2xl text-white items-center">
-                  <span>Enroll to our physical class</span>
+              <div className="w-full md:w-fit">
+                <button className="flex cursor-pointer w-full md:w-fit bg-primary-red justify-between md:justify-center pr-1.5 pl-4 font-bold gap-2.5 p-2 rounded-2xl text-white items-center">
+                  <span className="text-[12px] md:text-sm">
+                    Enroll to our physical class
+                  </span>
                   <img src={enroll} alt="" />
                 </button>
               </div>
             </div>
-            <img src={paymentLine} alt="" />
+            <img src={paymentLine} alt="" className="md:block hidden" />
+            <img src={paymentLineBlack} alt="" className="md:hidden w-full" />
+
             {/* middle container  */}
-            <div className="w-[277px]">
+            <div className="md:w-[277px]">
               <div className="flex items-center gap-2">
                 <img src={whatYou} alt="" />
                 <h5 className="font-bold">What You’ll Learn</h5>
@@ -89,9 +98,10 @@ export default function PaymentLogic() {
                 </ul>
               </div>
             </div>
-            <img src={paymentLine} alt="" />
+            <img src={paymentLine} alt="" className="md:block hidden" />
+            <img src={paymentLineBlack} alt="" className="md:hidden w-full" />
             {/* last container */}
-            <div className="w-[277px] h-[360px] mr-10">
+            <div className="md:w-[277px]  md:h-[360px] mr-10">
               <div className="flex gap-2 items-center">
                 <img src={location} alt="" />
                 <h1 className="font-bold">Our Physical Locations</h1>
@@ -116,42 +126,48 @@ export default function PaymentLogic() {
                 </ul>
               </div>
             </div>
-          </>
-        ) : (
-          <div className="flex gap-5 items-center justify-between w-full">
-            <BillingCard
-              price={monthlyPrice}
-              benefits={MonthlyBenefits}
-              billingDescription="What you will get with this plan..."
-            />
-            <BillingCard
-              duration="3 Months Plan"
-              benefits={threeMonthsBenefits}
-              price={threeMonthsPrice}
-              billingDescription="You will get everything in the monthly plan plus..."
-            />
-            <BillingCard
-              price={sixMonthsPrice}
-              paragraph="popular"
-              icon={star}
-              thePriceStyle="text-primary-red"
-              popularStyle="bg-white"
-              benefits={sixMonthsBenefits}
-              billingDescription="You will get everything in the 3 months plan plus..."
-            />
-            <BillingCard
-              price={yearlyPrice}
-              paragraph="top tier"
-              toptierStyle="bg-white text-primary-black mix-blend-difference"
-              paymentColor="text-primary-red"
-              duration="yearly plan"
-              icon={cup}
-              thePriceStyleTop="text-primary-red"
-              benefits={yearlyBenefits}
-              headerStyle="text-primary-black"
-              billingDescription="You will get everything in the 6 months plan plus..."
-            />
           </div>
+        ) : (
+          <>
+            <div className="flex gap-2.5 w-full md:hidden justify-end">
+              <PlansButton isLeft={true} />
+              <PlansButton isLeft={false} />
+            </div>
+            <div className="flex p-10 box-shadow rounded-3xl gap-5 flex-row items-center overflow-hidden md:overflow-auto justify-between w-full">
+              <BillingCard
+                price={monthlyPrice}
+                benefits={MonthlyBenefits}
+                billingDescription="What you will get with this plan..."
+              />
+              <BillingCard
+                duration="3 Months Plan"
+                benefits={threeMonthsBenefits}
+                price={threeMonthsPrice}
+                billingDescription="You will get everything in the monthly plan plus..."
+              />
+              <BillingCard
+                price={sixMonthsPrice}
+                paragraph="popular"
+                icon={star}
+                thePriceStyle="text-primary-red"
+                popularStyle="bg-white"
+                benefits={sixMonthsBenefits}
+                billingDescription="You will get everything in the 3 months plan plus..."
+              />
+              <BillingCard
+                price={yearlyPrice}
+                paragraph="top tier"
+                toptierStyle="bg-white text-primary-black mix-blend-difference"
+                paymentColor="text-primary-red"
+                duration="yearly plan"
+                icon={cup}
+                thePriceStyleTop="text-primary-red"
+                benefits={yearlyBenefits}
+                headerStyle="text-primary-black"
+                billingDescription="You will get everything in the 6 months plan plus..."
+              />
+            </div>
+          </>
         )}
       </div>
     </div>

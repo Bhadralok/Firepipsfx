@@ -39,7 +39,7 @@ body {
 }
 /* styles.css */
 .paragraph {
-  @apply font-medium text-secondary-black text-sm;
+  @apply font-medium text-secondary-black text-[12px] md:text-sm;
 }
 .inputs {
   @apply rounded-tr-[20px] rounded-bl-[20px] rounded-tl-[20px];
@@ -82,15 +82,7 @@ ul > li {
   @apply text-secondary-black text-sm font-medium;
 }
 .blog-h1 {
-  color: var(--Black, #1e0306);
-
-  /* Heading_Max */
-  font-family: "Satoshi", sans-serif;
-  font-size: 50px;
-  font-style: normal;
-  font-weight: 900;
-  line-height: normal;
-  text-transform: capitalize;
+ @apply text-[#1e0306] text-2xl md:text-[50px] font-black capitalize;
 }
 .blog-span {
   display: flex;
@@ -107,7 +99,10 @@ ul > li {
 }
 
 .box-shadow {
-  box-shadow: 0 6px 55px 10px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 55px 10px rgba(255, 0, 0, 0.06);
+}
+.box-shadow-lg {
+  @apply md:shadow-none shadow-[1px_-1px_40px_5px_rgba(0,0,0,0.12)];
 }
 
 .glass-header {
@@ -116,4 +111,7 @@ ul > li {
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   color: black;
+}
+.inputs1 {
+  border-radius: 20px 20px 20px 0;
 }

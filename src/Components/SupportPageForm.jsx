@@ -73,6 +73,7 @@ export default function SupportPageForm({ onClick, onSubmit }) {
               config={{
                 placeholder: "Enter your email e.g email@example.com",
                 value: form.email,
+                type: "email",
                 onChange: (e) => handleChange("email", e.target.value),
               }}
             />
@@ -86,8 +87,10 @@ export default function SupportPageForm({ onClick, onSubmit }) {
                 type: "number",
                 placeholder: "Start with country code e.g +234",
                 value: form["phone"],
-                pattern: "^[0-9]*$",
-                onChange: (e) => handleChange("phone", e.target.value),
+                onChange: (e) => {
+                  const value = e.target.value;
+                  if (value.length <= 13) handleChange("phone", value);
+                },
               }}
             />
           </div>
