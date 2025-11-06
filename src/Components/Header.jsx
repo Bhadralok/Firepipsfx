@@ -24,7 +24,7 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 md:px-0 w-full z-50">
-      <div className="flex box-shadow bg-white inputs md:rounded-none m-4 md:m-0 glass-header items-center justify-between px-6 md:px-10 py-4.5 md:py-4">
+      <div className="flex box-shadow bg-white inputing md:rounded-none m-4 md:m-0 glass-header items-center justify-between px-6 md:px-10 py-4.5 md:py-4">
         <img
           src={Logo}
           alt="Logo"

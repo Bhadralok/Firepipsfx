@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import useOutsideClick from "../Hooks/useOutsideClick";
 
 const Modalcontext = createContext();
@@ -37,11 +37,24 @@ Modal.Window = function Window({ children }) {
   const { isOpen, closeModal } = useModal();
   const ref = useOutsideClick(closeModal);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    return () => document.body.classList.remove("overflow-hidden");
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (
-    <section className="w-full h-screen fixed z-100 inset-0 bg-black/20 backdrop-blur-sm flex items-center justify-center">
-      <div ref={ref} className="min-w-40 w-auto relative bg-white rounded-3xl p-2 ">
+    <section className="w-full h-full fixed z-100 inset-0 bg-black/20 backdrop-blur-sm flex md:items-center py-10 md:py-0 justify-center">
+      <div
+        ref={ref}
+        className="md:min-w-40 w-auto relative bg-white rounded-3xl md:p-2 "
+      >
         {React.cloneElement(children, { onCloseModal: closeModal })}
       </div>
     </section>

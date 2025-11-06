@@ -44,6 +44,12 @@ body {
 .inputs {
   @apply md:rounded-none rounded-tr-[20px] rounded-bl-[20px] rounded-tl-[20px];
 }
+.inputs {
+  @apply rounded-tr-[20px] rounded-bl-[20px] rounded-tl-[20px];
+}
+.inputing {
+  @apply md:rounded-none rounded-tr-[20px] rounded-bl-[20px] rounded-tl-[20px];
+}
 @layer utilities {
   /* Hide arrows in number inputs (Chrome, Safari, Edge) */
   input::-webkit-outer-spin-button,
@@ -114,4 +120,7 @@ ul > li {
 }
 .inputs1 {
   border-radius: 20px 20px 20px 0;
+}
+.location-heading{
+  @apply font-black text-xl;
 }

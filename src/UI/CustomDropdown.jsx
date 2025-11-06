@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function CustomDropdown({
   isOpen,
@@ -7,6 +8,7 @@ export default function CustomDropdown({
   position = "right-2",
   style,
   icon,
+  link,
 }) {
   const [activeIndex, setActiveIndex] = useState(null);
   const dropdownRef = useRef(null);
@@ -27,29 +29,35 @@ export default function CustomDropdown({
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
-  
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const baseStyle = `${position} absolute  bg-white text-secondary-black rounded-[20px] shadow-lg`;
   return (
     <div className={` ${style} ${baseStyle}`} ref={dropdownRef}>
       <ul>
         {items.map((item, index) => (
-          <li
-            key={index}
-            className={`px-4 py-2 whitespace-nowrap text-[12px] cursor-pointer font-medium flex gap-4 justify-between items-center hover:bg-gray-100 ${
-              item.className || ""
-            }`}
-            onClick={() => {
-              setActiveIndex(index);
-              if (item.onClick) item.onClick();
-              onClose(item);
-            }}
-          >
-            {item.icon && (
-              <img src={item.icon} alt="" className="inline mr-2" />
-            )}
-            {item.label}
-            {activeIndex === index && icon && <span>{icon}</span>}
-          </li>
+          <Link to={link} onClick={scrollToTop} key={index}>
+            <li
+              key={index}
+              className={`px-4 py-2 whitespace-nowrap text-[12px] cursor-pointer font-medium flex gap-4 justify-between items-center hover:bg-gray-100 ${
+                item.className || ""
+              }`}
+              onClick={() => {
+                setActiveIndex(index);
+                if (item.onClick) item.onClick();
+                onClose(item);
+              }}
+            >
+              {item.icon && (
+                <img src={item.icon} alt="" className="inline mr-2" />
+              )}
+              {item.label}
+              {activeIndex === index && icon && <span>{icon}</span>}
+            </li>
+          </Link>
         ))}
       </ul>
     </div>

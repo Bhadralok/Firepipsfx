@@ -74,7 +74,7 @@ function SupportForm({ onCloseModal }) {
   //   console.log(hasData);
   // };
   return (
-    <div className="max-w-6xl overflow-hidden">
+    <div className="md:max-w-6xl overflow-hidden">
       {hasData ? (
         <SupportPageSent onClick={onCloseModal} />
       ) : (

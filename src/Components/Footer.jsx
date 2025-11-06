@@ -132,7 +132,7 @@ export default function Footer() {
               } flex gap-1 items-center w-fit`}
             >
               Our Locations{" "}
-              <span className="relative">
+              <span className="relative ">
                 {isToggled ? (
                   <LuCircleChevronUp size={18} color="#ed3c52" />
                 ) : (
@@ -144,6 +144,7 @@ export default function Footer() {
                   items={profileItems}
                   style="py-4 px-1 top-7"
                   position="-right-13"
+                  link={profileItems.link}
                 />
               </span>
             </li>
@@ -238,9 +239,10 @@ export default function Footer() {
   );
 }
 const profileItems = [
-  { label: "Lagos Island - Lekki" },
-  { label: "Lagos Mainland - Ikeja" },
-  { label: "Delta - Asaba Branch" },
+  { label: "Lagos Island - Lekki", link: "/" },
+  { label: "Lagos Mainland - Ikeja", link: "/contact-us" },
+  { label: "Delta - Asaba Branch", link: "/contact-us" },
+  { label: "Kano Branch", link: "/contact-us" },
 ];
 // const navLinks = [
 //   { name: "About", path: "/about" },

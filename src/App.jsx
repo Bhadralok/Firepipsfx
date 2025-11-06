@@ -15,6 +15,7 @@ import LotsizeCalculator from "./Pages/LotsizeCalculator";
 import Blogs from "./Pages/Blogs";
 import BlogDetails from "./Pages/BlogDetails";
 import Testing from "./Pages/Testing";
+import Location from "./Pages/Location";
 
 export default function App() {
   const router = createBrowserRouter(
@@ -30,6 +31,7 @@ export default function App() {
           <Route path="blog" element={<Blogs />} />
           <Route path="blog/:id" element={<BlogDetails />} />
           <Route path="testing" element={<Testing />} />
+          <Route path="our-locations" element={<Location />} />
         </Route>
 
         <Route path="*" element={<Page404 />} />

@@ -36,13 +36,13 @@ export default function SupportPageForm({ onClick, onSubmit }) {
   console.log(form);
 
   return (
-    <div className="flex flex-col w-[63.375rem] gap-10 items-center text-center p-10">
-      <div>
+    <div className="flex flex-col md:w-[63.375rem] md:gap-10 items-center text-center gap-6 py-10 px-4 md:p-10">
+      <div className="">
         <div className="flex flex-col items-center">
           <img src={supportIcon} alt="" className="pb-7.5" />
         </div>
-        <div className="flex flex-col gap-5">
-          <h2 className="font-black text-3xl leading-0">
+        <div className="flex flex-col gap-6 md:gap-5">
+          <h2 className="font-black text-2xl md:text-3xl leading-0">
             Create a support request ticket
           </h2>
           <p className="paragraph">
@@ -51,7 +51,7 @@ export default function SupportPageForm({ onClick, onSubmit }) {
           </p>
         </div>
       </div>
-      <form action="" className="flex gap-7.5 w-full">
+      <form action="" className="flex md:flex-row flex-col gap-7.5 w-full">
         <div className="w-full container flex flex-col gap-5">
           <div className="">
             <label htmlFor="">Full Name</label>

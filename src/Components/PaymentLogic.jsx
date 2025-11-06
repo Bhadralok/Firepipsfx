@@ -50,7 +50,7 @@ export default function PaymentLogic() {
       <h2 className="font-bold text-sm  text-primary-black pt-7.5">
         Select a mentorship type
       </h2>
-      <div className="md:w-fit w-full flex ">
+      <div className=" md:w-100 w-full flex ">
         <LineButton onClick={handleClick} isActive={isActive}>
           Physical mentorship
         </LineButton>
