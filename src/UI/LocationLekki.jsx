@@ -82,7 +82,7 @@ export default function LocationLekki() {
           <img
             src={location1}
             alt="location 1"
-            class="w-full h-full object-cover"
+            className="w-full h-full object-cover"
           />
         </div>
 
@@ -90,7 +90,7 @@ export default function LocationLekki() {
           <img
             src={location2}
             alt="location 2"
-            class="w-full h-full object-cover"
+            className="w-full h-full object-cover"
           />
         </div>
 
@@ -98,7 +98,7 @@ export default function LocationLekki() {
           <img
             src={location3}
             alt="location 3"
-            class="w-full h-full object-cover"
+            className="w-full h-full object-cover"
           />
         </div>
       </div>

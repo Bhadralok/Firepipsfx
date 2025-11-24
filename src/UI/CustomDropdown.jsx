@@ -8,7 +8,6 @@ export default function CustomDropdown({
   position = "right-2",
   style,
   icon,
-  link,
 }) {
   const [activeIndex, setActiveIndex] = useState(null);
   const dropdownRef = useRef(null);
@@ -39,7 +38,7 @@ export default function CustomDropdown({
     <div className={` ${style} ${baseStyle}`} ref={dropdownRef}>
       <ul>
         {items.map((item, index) => (
-          <Link to={link} onClick={scrollToTop} key={index}>
+          <Link to={item.link} key={index}>
             <li
               key={index}
               className={`px-4 py-2 whitespace-nowrap text-[12px] cursor-pointer font-medium flex gap-4 justify-between items-center hover:bg-gray-100 ${
@@ -49,6 +48,7 @@ export default function CustomDropdown({
                 setActiveIndex(index);
                 if (item.onClick) item.onClick();
                 onClose(item);
+                scrollToTop();
               }}
             >
               {item.icon && (

@@ -5,6 +5,7 @@ import LocationIkeja from "../UI/LocationIkeja";
 import LocationAsaba from "../UI/LocationAsaba";
 import LocationKano from "../UI/LocationKano";
 import { useLocation } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 export default function LocationLogic({
   Lekki = true,
@@ -12,8 +13,17 @@ export default function LocationLogic({
   Asaba = false,
   Kano = false,
 }) {
-  const location = useLocation();
   const [active, setActive] = useState("Lekki");
+  const location = useLocation();
+
+  const [searchParams] = useSearchParams();
+  const locationFromURL = searchParams.get("location");
+
+  useEffect(() => {
+    if (locationFromURL) {
+      setActiveLocation(locationFromURL);
+    }
+  }, [locationFromURL]);
 
   const [activeLocation, setActiveLocation] = useState(
     Lekki ? "Lekki" : Ikeja ? "Ikeja" : Asaba ? "Asaba" : "Kano"
@@ -52,7 +62,10 @@ export default function LocationLogic({
             <LineButton
               key={key}
               isActive={activeLocation === key}
-              onClick={() => setActiveLocation(key)}
+              onClick={() => {
+                setActiveLocation(key);
+                console.log(key);
+              }}
             >
               {label}
             </LineButton>
@@ -64,3 +77,5 @@ export default function LocationLogic({
     </div>
   );
 }
+// navigate(`/our-locations/${label.key}`);
+// console.log(locations);

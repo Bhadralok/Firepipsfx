@@ -98,7 +98,7 @@ export default function LocationAsaba() {
           <img
             src={location10}
             alt="location 1"
-            class="w-full h-full object-cover"
+            className="w-full h-full object-cover"
           />
         </div>
 
@@ -106,7 +106,7 @@ export default function LocationAsaba() {
           <img
             src={location11}
             alt="location 2"
-            class="w-full h-full object-cover"
+            className="w-full h-full object-cover"
           />
         </div>
 
@@ -114,7 +114,7 @@ export default function LocationAsaba() {
           <img
             src={location12}
             alt="location 3"
-            class="w-full h-full object-cover"
+            className="w-full h-full object-cover"
           />
         </div>
       </div>

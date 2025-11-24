@@ -144,7 +144,7 @@ export default function Footer() {
                   items={profileItems}
                   style="py-4 px-1 top-7"
                   position="-right-13"
-                  link={profileItems.link}
+                  link="/our-locations"
                 />
               </span>
             </li>
@@ -239,32 +239,8 @@ export default function Footer() {
   );
 }
 const profileItems = [
-  { label: "Lagos Island - Lekki", link: "/" },
-  { label: "Lagos Mainland - Ikeja", link: "/contact-us" },
-  { label: "Delta - Asaba Branch", link: "/contact-us" },
-  { label: "Kano Branch", link: "/contact-us" },
+  { label: "Lagos Island - Lekki", link: "/our-locations?location=Lekki" },
+  { label: "Lagos Mainland - Ikeja", link: "/our-locations?location=Ikeja" },
+  { label: "Delta - Asaba Branch", link: "/our-locations?location=Asaba" },
+  { label: "Kano Branch", link: "/our-locations?location=Kano" },
 ];
-// const navLinks = [
-//   { name: "About", path: "/about" },
-//   { name: "Mentorship Plans", path: "/plans" },
-//   { name: "Blog", path: "/blog" },
-//   { name: "FAQs", path: "/faqs" },
-//   { name: "Support", path: "/faqs" },
-//   { name: "Access Learning Dashboard", path: "/lotsize-calculator" },
-// ];
-
-// {
-//   navLinks.map((link) => (
-//     <li
-//       key={link.name}
-//       onClick={() => navigate(link.path)}
-//       className={`cursor-pointer  ${
-//         location.pathname === link.path
-//           ? "text-primary-red font-bold text-base"
-//           : "font-medium text-secondary-black text-sm"
-//       }`}
-//     >
-//       {link.name}
-//     </li>
-//   ));
-// }
