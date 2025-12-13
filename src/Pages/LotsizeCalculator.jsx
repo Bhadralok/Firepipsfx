@@ -11,6 +11,8 @@ export default function LotsizeCalculator() {
   const amountAtRisk = 25899.12;
   const [isValid, setIsValid] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
+  const [valueData, setValueData] = useState("");
+  const [currentValue, setCurrentValue] = useState(null);
   const [values, setValues] = useState({
     currency: "Default - USD",
     instrument: "Default - USD",
@@ -23,9 +25,14 @@ export default function LotsizeCalculator() {
 
   const handleSetValues = (key, value) => {
     setValues((c) => ({ ...c, [key]: value }));
-    const currency = value.split(" ")[0];
-    setSelectedValue(currency);
-    setCurrencyClicked(true);
+
+    if (key === "instrument") {
+      const currency = value.split(" ")[0];
+      setSelectedValue(currency);
+      setCurrentValue(currency);
+      setCurrencyClicked(true);
+      setValueData(value);
+    }
   };
 
   useEffect(() => {
@@ -34,6 +41,8 @@ export default function LotsizeCalculator() {
       setIsValid(true);
     }
   }, [values]);
+
+  console.log("Default?", valueData);
 
   return (
     <div className="h-full w-full md:pt-24 pt-10 px-5 md:px-10 flex flex-col gap-10">
@@ -60,14 +69,16 @@ export default function LotsizeCalculator() {
                 description="Select your account currency"
               />
             </div>
-            {currencyClicked && (
+            {currencyClicked && valueData !== "Default - USD" && (
               <CustomInput
                 config={{
                   value: values["asking"],
                   onChange: (e) => handleSetValues("asking", e.target.value),
+                  type: "number",
+                  pattern: "^[0-9]*$",
                 }}
-                header={`Asking price - ${selectedValue}/USD`}
-                description={`Enter the current asking price for ${selectedValue}/USD`}
+                header={`Asking price - ${currentValue}/USD`}
+                description={`Enter the current asking price for ${currentValue}/USD`}
               />
             )}
             <div className="w-full flex md:flex-row flex-col gap-6 md:gap-10">
@@ -183,3 +194,12 @@ export default function LotsizeCalculator() {
     </div>
   );
 }
+
+const items = [
+  "Default - USD",
+  "NGN - Nigerian Naira",
+  "GBP - British Pounds",
+  "ZAR",
+];
+
+console.log(items);

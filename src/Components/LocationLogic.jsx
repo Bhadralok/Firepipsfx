@@ -13,6 +13,10 @@ export default function LocationLogic({
   Asaba = false,
   Kano = false,
 }) {
+  const [activeLocation, setActiveLocation] = useState(
+    Lekki ? "Lekki" : Ikeja ? "Ikeja" : Asaba ? "Asaba" : "Kano"
+  );
+
   const [active, setActive] = useState("Lekki");
   const location = useLocation();
 
@@ -24,10 +28,6 @@ export default function LocationLogic({
       setActiveLocation(locationFromURL);
     }
   }, [locationFromURL]);
-
-  const [activeLocation, setActiveLocation] = useState(
-    Lekki ? "Lekki" : Ikeja ? "Ikeja" : Asaba ? "Asaba" : "Kano"
-  );
 
   const locations = [
     {
