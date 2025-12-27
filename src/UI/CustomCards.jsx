@@ -1,4 +1,4 @@
-import UpRightArrowRed from "../assets/UpRightArrowRed.svg";
+import UpRightArrowRed from "../assets/upRightArrowRed.svg";
 import CustomButton from "../UI/CustomButton";
 
 export default function CustomCards({
