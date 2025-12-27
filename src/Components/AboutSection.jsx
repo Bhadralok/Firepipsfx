@@ -2,7 +2,7 @@ import MeetIcon from "../assets/Meet.svg";
 import MeetCoverImg from "../assets/Jeffrey.png";
 import MeetCoverImg2 from "../assets/Jeffrey2.png";
 import UpRightArrow from "../assets/upRightArrow.svg";
-import UpRightArrowRed from "../assets/UpRightArrowRed.svg";
+import UpRightArrowRed from "../assets/upRightArrowRed.svg";
 import CustomButton from "../UI/CustomButton";
 
 export default function AboutSection({ id }) {
