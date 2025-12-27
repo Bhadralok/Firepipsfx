@@ -1,6 +1,6 @@
 import xaider from "../assets/xaider.svg";
 import reviewLine from "../assets/reviewLine.svg";
-import ReviewNav from "./reviewNav";
+import ReviewNav from "./ReviewNav.jsx";
 
 export default function ReviewCard() {
   return (
