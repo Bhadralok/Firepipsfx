@@ -4,7 +4,7 @@ import location9 from "../assets/location9.png";
 import locationicon from "../assets/location.svg";
 import { MdEmail } from "react-icons/md";
 import { IoLogoWhatsapp } from "react-icons/io";
-import UpRight from "../assets/UpRightArrowRed.svg";
+import UpRight from "../assets/upRightArrowRed.svg";
 import map from "../assets/Map1.png";
 import downArrow from "../assets/pointingDownArrow.svg";
 import { FaCheckCircle } from "react-icons/fa";
