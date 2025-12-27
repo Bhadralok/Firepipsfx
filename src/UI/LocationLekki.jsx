@@ -1,4 +1,4 @@
-import location1 from "..assets/location1.png";
+import location1 from "../assets/location1.png";
 import location2 from "../assets/location2.png";
 import location3 from "../assets/location3.png";
 import location from "../assets/location.svg";
