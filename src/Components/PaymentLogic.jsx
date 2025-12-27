@@ -35,6 +35,7 @@ export default function PaymentLogic() {
   const sixMonthsPrice = 339;
   const yearlyPrice = 599;
 
+
   const handleScroll = (direction) => {
     if (!scrollRef.current) return;
     const scrollAmount = 400; // adjust scroll distance

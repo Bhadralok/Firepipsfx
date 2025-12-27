@@ -17,7 +17,7 @@ import forex from "../assets/forex.svg";
 import Live from "../assets/Live.svg";
 import Book from "../assets/Book.svg";
 import curriculum from "../assets/Curriculum.svg";
-import learning from "../assets/learning.svg";
+import learning from "../assets/Learning.svg";
 import rocket from "../assets/rocket.svg";
 import buttonArrow from "../assets/buttonArrow.svg";
 import pageLine from "../assets/pageLine.svg";
