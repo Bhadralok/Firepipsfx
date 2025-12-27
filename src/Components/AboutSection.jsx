@@ -39,7 +39,7 @@ export default function AboutSection({ id }) {
             </p>
             {/* <div className="h-41 w-[2px] bg-red-500 top-88 absolute"></div> */}
           </div>
-          
+
           <div className="inline-block bg-cover bg-center">
             <img
               src={MeetCoverImg}
